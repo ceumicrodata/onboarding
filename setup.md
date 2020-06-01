@@ -4,9 +4,9 @@ title: Setup
 This is a comprehensive list of what you are going to need throughout these lessons. We will go into details after a quick overview:
 > ## `Key requirements`
 >
-> Python 3 installation with pip3 and virtualenv
-> BEAD executable
-> Git installation, Git Bash on Windows
+> * Python 3 installation with pip3 and virtualenv
+> * BEAD executable
+> * Git installation, Git Bash on Windows
 {: .checklist}
 
 Let's go through them one by one.
