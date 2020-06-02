@@ -26,7 +26,7 @@ These guidelines help us share data among themselves. Always make the extra effo
 4. Do not indicate author in filename. File versions should be managed by version control tool.
 5. For folders and files containing multiples of the same entity, use plain English singular filenames, e.g. `city.csv`, `county.csv`, `mayor.csv`, `exhibit/figure`, `output/table` 
 
-#Data format
+# Data format
 1. All text data files use UTF-8 encoding from the “consistent” stage upward. If the raw file is in any other encoding, your first task is to convert it to UTF-8.
 2. CSV files are generally the preferred format, with `,` as separator and `”` as quote character.  Do NOT use `;` or tab as separator. CSV format is easily processed by all software (Python, STATA, Excel, ...), the only problem being with separators and quote characters defined according to individual preferences.
 3. Missing values are missing. Do not include any special values (N/A, -99, 0) for missing values in fields, leave them blank. The user of the data should build in any logic to deal with missing values.
@@ -43,8 +43,8 @@ These guidelines help us share data among themselves. Always make the extra effo
 8. Only put those data files in output folder of bead that will be actually used. Keep temporary files in the temp folder.
 
 # Code style guide
-1. Python code must follow PEP-8
-2. Stata code must follow http://www.stata-journal.com/sjpdf.html?articlenum=pr0018
+1. Python code must follow [PEP-8](https://www.python.org/dev/peps/pep-0008/).
+2. Stata code must follow [this guide](http://www.stata-journal.com/sjpdf.html?articlenum=pr0018).
 3. Stata code should be no longer than 120 lines. If longer, break it up.
 
 
