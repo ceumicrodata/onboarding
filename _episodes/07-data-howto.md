@@ -14,25 +14,35 @@ keypoints:
 ---
 
 # Stages of data
-Stage 0---_raw data_ is incoming data in whatever format. HTMLs scraped from the web, a large SQL dump from a data vendor, dBase files copied from a 200 DVDs (true story). Always store this for archival and replication purposes. This data is immutable, will be written once and read many times.
+## Stage 0: raw data
+Raw data is incoming data in whatever format. HTMLs scraped from the web, a large SQL dump from a data vendor, dBase files copied from a 200 DVDs (true story). Always store this for archival and replication purposes. This data is immutable, will be written once and read many times.
 
 > Example: country names, capitals, areas and populations scraped from [scrapethissite.com](https://scrapethissite.com/pages/simple/), stored as a single HTML file.
+{: .callout}
 
-Stage 1---_consistent_ data has the same information content as the raw data, but is in a preferred format with a consistent schema. You can harmonize inconsistent column names, correct missing value encodings, convert to CSV, that sort of thing. No judgmental cleaning yet. In our case, consistent data contains a handful of UTF-8 encoded CSV files with meaningful column and table names, generally following [tidy data principles](http://vita.had.co.nz/papers/tidy-data.html). The conversion involves no or minimal information loss.
+## Stage 1: consistent data
+Constistent data has the same information content as the raw data, but is in a preferred format with a consistent schema. You can harmonize inconsistent column names, correct missing value encodings, convert to CSV, that sort of thing. No judgmental cleaning yet. In our case, consistent data contains a handful of UTF-8 encoded CSV files with meaningful column and table names, generally following [tidy data principles](http://vita.had.co.nz/papers/tidy-data.html). The conversion involves no or minimal information loss.
 
 > Example: A single CSV file with columns `country_name`, `capital`, `area`, `population`, in UTF-8 encoding.
+{: .callout}
 
-Stage 2---_clean_ data is the best possible representation of information in the data in a way that can be reused in many applications. This conversion step involves substantial amount of cleaning, internal and external consistency checks. Some information loss can occur. Written a few times, read many times, frequently by many users for many different projects. When known entities are mentioned (firms, cities, agencies, individuals, countries), they should be referred to by canonical unique identifiers, such as [ISO-3166–1 codes](https://datahub.io/core/country-list) for countries.
+## Stage 2: clean data
+Clean data is the best possible representation of information in the data in a way that can be reused in many applications. This conversion step involves substantial amount of cleaning, internal and external consistency checks. Some information loss can occur. Written a few times, read many times, frequently by many users for many different projects. When known entities are mentioned (firms, cities, agencies, individuals, countries), they should be referred to by canonical unique identifiers, such as [ISO-3166–1 codes](https://datahub.io/core/country-list) for countries.
 
 > Example: Same as consistent, with additional columns for ISO-3166 code of countries and [geonames ID](https://www.geonames.org/) of cities. You can also add geocoordinates of each capital city.
+{: .callout}
 
-Stage 3---_derived_ data usually contains only a subset of the information in the original data, but is built to be reused in different projects. You can aggregate to yearly frequency, select only a subset of columns, that sort of thing. Think SELECT, WHERE, GROUP BY clauses.
+## Stage 3: derived data
+Derived data usually contains only a subset of the information in the original data, but is built to be reused in different projects. You can aggregate to yearly frequency, select only a subset of columns, that sort of thing. Think SELECT, WHERE, GROUP BY clauses.
 
 > Example: All countries in Europe.
+{: .callout}
 
-Stage 4---_analysis sample_ contains all the variable definitions and sample limitations you need for your analysis. This data is typically only used in one project. You should only do JOINS with other clean or derived datasets at this stage, not before. This is written and read frequently by a small number of users.
+## Stage 4: analysis sample
+Analysis sample contains all the variable definitions and sample limitations you need for your analysis. This data is typically only used in one project. You should only do JOINS with other clean or derived datasets at this stage, not before. This is written and read frequently by a small number of users.
 
 > Example: The European country sample joined with population of capital cities ([from the UN](https://unstats.un.org/unsd/demographic/products/dyb/City_Page.htm)) so that you can calculate what fraction of population lives in the capital.
+{: .callout}
 
 ## How do you progress from one stage to the other?
 
@@ -44,7 +54,7 @@ Stage 4---_analysis sample_ contains all the variable definitions and sample lim
 
 **Share your intermediate data products**. All the data cleaning you have done might be useful for others, too. If possible, share your intermediate products with other analysts by saving a (bead)[FIXME: ref].
 
-# Categories od data protection
+# Categories of data protection
 Privacy and ethical considerations necessitate good data protection practices. We have three categories of data:
 ## CAT1: Public data
 The data is available publicly elsewhere. There is no embarrassment if accidentally made public. 
