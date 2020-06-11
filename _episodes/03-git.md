@@ -84,24 +84,39 @@ The .git directory contains:
 | Code             | Short description                            |
 |:-------------------|:-------------------------------------------------|
 | `git init` |Initialize local git repository |
-| `git status` |Check the status of git repository |
+| `git status` |Check the status of git repository (e.g. the branch, files to commit)|
 | `git add` |Add files to staging index|
 | `git add .` |Add all modified files to staging index|
 | `git commit -m"Text"` |Commit changes with commit message |
-| `git log` | |
-| `git log --oneline` | |
-| `git log --stat` | |
-| `git log -p` |Patch |
-| `git log -p --stat` | |
-| `git log -p -w` |It ignores whitespace changes |
-| `git shoq` | |
-| `git diff` | |
-| `git tag` | |
-| `git tag -a "tagname"` | |
-| `git tag -d "tagname` | |
-| `git tag -a "tagname" "SHA pattern"` | |
-| `git branch` | |
-| `git branch "name_of_branch" "SHA pattern(optional"` | |
+| `git log` |Check git commits specifying SHA, author, date and commit message |
+| `git log --oneline` |Check git commits specifying short SHA and commit message |
+| `git log --stat` |Check git commits with additional information on the files changed and insertions/deletions |
+| `git log -p` |Shows detailed information on lines inserted/ deleted in commits |
+| `git log -p --stat` |Combines information from previous two commands |
+| `git log -p -w` |Shows detailed information on commits ignoring whitespace changes |
+| `git show` |Show only last commit|
+| `git show <options> <object>` |View expanded details on git objects  |
+| `git diff` |See the changes that haven’t been committed yet|
+| `git diff <SHA> <SHA>` |Shows changes between commits |
+| `git tag` |Show existing tags |
+| `git tag -a "tagname"` |Tag current commit |
+| `git tag -d "tagname` |Delete tag |
+| `git tag -a "tagname" "SHA pattern"` |Tag commit with given SHA pattern |
+| `git branch "name_of_branch" "SHA pattern(optional)"` |Create new branch – at SHA pattern |
+| `git branch “name_of_branch” master` |Start new branch at the latest commit of master branch |
+| `git checkout “name_of_branch”` |Move pointer to the latest commit of the specified branch |
+| `git branch -d “name_of_branch` |Delete branch, use -D to force deletion |
+| `git checkout -b “name_of_branch”` |Create branch and checkout in one command |
+| `git log --oneline --graph --all` |Show branches in a tree |
+| `git merge “name_of_branch_to_merge_in”` |Merge in current branch to another |
 
+## Useful resources for mastering git and github:
+- Technical foundations of informatics book: <https://info201.github.io/git-basics.html>
+- Software carpentry course (Strongly recommended): <https://swcarpentry.github.io/git-novice/>
+- Github Learning Lab: <https://lab.github.com/>
+- If you are really committed (pun intended): <https://git-scm.com/book/en/v2>
 
+## Useful GUI tools for version control:
+- Sublime Merge: <https://www.sublimemerge.com>
+- Version Control in VS Code: <https://code.visualstudio.com/docs/editor/versioncontrol>
 
