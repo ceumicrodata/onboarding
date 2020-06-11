@@ -56,17 +56,17 @@ It is also useful when experimenting with new code, as git makes it possible to 
 #### SHA
 
 A SHA("Secure Hash Algorithm") is an identification number for each commit.
-It contains 40-character string composed of characters (0–9 and a–f) such as `e2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6`.
+It is a 40-character string composed of characters (0–9 and a–f) such as `e2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6`.
 
 #### Branch
 
 A branch is a line of development that diverges from the main line of development.
-It further allows you to experiment with the code without modified the line of development in the master branch.
+It further allows you to experiment with the code without modifying the line of development in the master branch.
 When the project development in a branch turns out successful, it can be merged back to the master branch.
 
 #### Checkout
 
-Checkout allows you to switch your working directory to a different commit.
+Checkout allows you to point your working directory to a different commit.
 Therefore, you can jump to a particular SHA or to a different branch.
 
 #### .Git Directory Contents
