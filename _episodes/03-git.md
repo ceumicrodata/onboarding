@@ -81,21 +81,27 @@ The .git directory contains:
 
 ### Useful commands
 
--   git init -> Initialize local git repository
--   git status -> Check the status of git repository
--   git add -> Add files to staging index
--   git commit -m"Message" -> Commit changes 
--   git log
-  -   git log --oneline ->
-  -   git log --stat ->
-  -   git log -p -> Patch
-  -   git log –p --stat
-  -   git log -p -w -> It ignores whitespace changes
--   git show
--   git diff
--   git tag
-  -   git tag -a "tagname"
-  -   git tag -d "tagname"
-  -   git tag -a "tagname" "SHA pattern"
--   git branch
-  -   git branch “name_of_branch” “SHA pattern(optional)”
+| Code             | Short description                            |
+|:-------------------|:-------------------------------------------------|
+| `git init` |Initialize local git repository |
+| `git status` |Check the status of git repository |
+| `git add` |Add files to staging index|
+| `git add .` |Add all modified files to staging index|
+| `git commit -m"Text"` |Commit changes with commit message |
+| `git log` | |
+| `git log --oneline` | |
+| `git log --stat` | |
+| `git log -p` |Patch |
+| `git log -p --stat` | |
+| `git log -p -w` |It ignores whitespace changes |
+| `git shoq` | |
+| `git diff` | |
+| `git tag` | |
+| `git tag -a "tagname"` | |
+| `git tag -d "tagname` | |
+| `git tag -a "tagname" "SHA pattern"` | |
+| `git branch` | |
+| `git branch "name_of_branch" "SHA pattern(optional"` | |
+
+
+
