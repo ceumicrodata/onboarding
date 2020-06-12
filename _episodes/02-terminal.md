@@ -225,7 +225,7 @@ You can find the most commonly used commands with a short description below by c
 
   **IMPORTANT**: deletion is **permanent**. You should not use it in general, it is only a last resort. The presence of read-only files strongly suggests that they should not be deleted using `rm`, but in some other ways (e.g. `bead nuke` in case of beads). There are some cases when this is useful, but use it with care and only if it is unavoidable.
 
-- Some useful shortcuts, which could be used with the some of the above-mentioned commands: 
+- Some useful shortcuts which could be used with the some of the above-mentioned commands: 
   - `?` , a question mark can be used to indicate "any single character". 
   - `* `, an asterisk can be used to indicate "zero or more characters".
 
@@ -240,18 +240,17 @@ You can find the most commonly used commands with a short description below by c
   $ cat test_*  
   ~~~
   {: .language-bash}
-  
 
-  You are going to learn about `cat` command in the **Redirection** section. 
+  You are going to learn about `cat` command in the next section. 
 
 ## Redirection
-- `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
+- `cat` will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
   ~~~
   $ cat my-code.py
   ~~~
   {: .language-bash}
 
-If you specify multiple files, it will con`cat`enate (its name come frome here), meaning that linking together and output each o them, one after the other, as a single block of text as it could be seen at the end of the **Files and Directories Manipulation** section.
+If you specify multiple files, it will con`cat`enate (its name comes from here), meaning that linking together and output each of them, one after the other, as a single block of text as it could be seen at the end of the **Files and Directories Manipulation** section.
 
 - `head` and `tail` shows you the first and last few lines of a text file, respectively. It has one positional argument, the text file. 
   ~~~
@@ -260,7 +259,7 @@ If you specify multiple files, it will con`cat`enate (its name come frome here),
   ~~~
   {: .language-bash}
 
-- `echo` will print the value of it's argument on your terminal screen.
+- `echo` will print the value of its argument on your terminal screen.
   ~~~
   $ echo hello world!
   ~~~
@@ -271,12 +270,12 @@ If you specify multiple files, it will con`cat`enate (its name come frome here),
   ~~~
   {: .output}
 
-- Some other useful commands and shortcuts: 
+- Some, other useful commands and shortcuts: 
   - `>` redirection operator will redirect standard output to another file instead of the screen. However, using this will *ALWAYS* overwrite the content of that file
 
   - `>>` redirection operator will do the same as `>` does, **BUT** it will **not** overwrite the output file. Instead, it will append the content of that file. 
 
-  - `|` pipeline operator connect the ouput of one command with the input of a second command. 
+  - `|` pipeline operator connects the ouput of one command with the input of a second command. 
 
   - `sort` will sort lines of text.
 
@@ -289,9 +288,9 @@ If you specify multiple files, it will con`cat`enate (its name come frome here),
   For more information, please consult the **Chapter 6 - Redirection** in "The Linux Command Line" book. 
 
 ## File Permissions 
-For a concise description, please visit the *File Permissions* section of the following link: <https://datacarpentry.org/shell-economics/03-working-with-files/index.html /> 
+For concise description, please visit the *File Permissions* section of the following link: <https://datacarpentry.org/shell-economics/03-working-with-files/index.html /> 
 
 # Useful resources for learning Terminal: 
-- Intro to the Command Line for Economics: <https://datacarpentry.org/shell-economics />
+- Introdutction to the Command Line for Economics: <https://datacarpentry.org/shell-economics />
 - Official Ubuntu tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview />
 - The Linux Command Line by William Shotts: <http://linuxcommand.org/tlcl.php /> (freely available)
