@@ -228,6 +228,7 @@ You can find the most commonly used commands with a short description below by c
 - Some useful shortcuts, which could be used with the some of the above-mentioned commands: 
   - `?` , a question mark can be used to indicate "any single character". 
   - `* `, an asterisk can be used to indicate "zero or more characters".
+
   ~~~
   #Instead of using 
   $ cat test_1.txt test_2.txt test_3.txt
@@ -235,28 +236,13 @@ You can find the most commonly used commands with a short description below by c
   #Better usage is
   $ cat test_?.txt
 
-  #An even better, shorter solution is
-  $ cat test_*
+  #An even shorter solution is
+  $ cat test_*  
   ~~~
   {: .language-bash}
   
+
   You are going to learn about `cat` command in the **Redirection** section. 
-
-## Working with Commands
-- `type` will indicate how a command name is interpreted.
-
-- `which` will display which executable program will be executed.
-
-- `apropros` will display a list of appropriate commands.
-
-- `info` will display a command's info entry.
-
-- `whatis` will display one-line manual page descriptions.
-
-- `alias` will create an alias for a command 
-
-- `whoami` will remind you of your username. (Hope it will not forget your identity like Jackie Chan in the "Who am I?" movie)
-
 
 ## Redirection
 - `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
