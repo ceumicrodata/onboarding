@@ -3,13 +3,13 @@ title: "A quick introduction to Git and Github"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- What are the basic terms used by version control systems?
+- Which files are contained within the .git directory?
+- What are some of the most important git commands? 
 objectives:
-- "First learning objective. (FIXME)"
-keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- Understand the basic terminology of Git and Github
+- List some of the most useful commands that can be easily accessed in your everyday work
 ---
-FIXME
 
 {% include links.md %}
 
