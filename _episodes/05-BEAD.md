@@ -126,7 +126,7 @@ cd -
 
 # Basic workflow
 
-![Workflows](./workflows.png)
+![Workflows](./data/workflows.png)
 
 ## Create a new bead
 
@@ -278,7 +278,7 @@ Archive:  BeadBox/hello_20160527T130218513418+0200.zip
 
 The following graph summarizes the internal structure of a workspace and the logical links to other beads.
 
-![Internals](./internals.png)
+![Internals](./data/internals.png)
 
 # Bead boxes
 {% include links.md %}
