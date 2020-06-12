@@ -239,6 +239,7 @@ You can find the most commonly used commands with a short description below by c
   $ cat test_*
   ~~~
   {: .language-bash}
+  
   You are going to learn about `cat` command in the **Redirection** section. 
 
 ## Working with Commands
