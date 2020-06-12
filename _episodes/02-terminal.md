@@ -45,7 +45,7 @@ In order to use your computer via the Terminal, you will have to type commands a
 
 # The most important Terminal commands
 Terminal commands can be executed by pressing enter after typing them. The general structure of a command is the following:
-`command <positional arguments> <optional arguments>`. Some commands work by themselves, while others require arguments (for example if you want to change the working directory, you have to specify the new working directory). Positional arguments always have to be specified, while optional arguments are, as their name suggests, optional. You can almost always get a detailed explanation on the positional and optional arguments by opening up the manual of the command by executing `man <command>` or by calling the command with it's help optional argument by `<command> --help` or `help <command>`
+`command <positional arguments> <optional arguments>`. Some commands work by themselves, while others require arguments (for example if you want to change the working directory, you have to specify the new working directory). Positional arguments always have to be specified, while optional arguments are, as their name suggests, optional. You can almost always get a detailed explanation on the positional and optional arguments by opening up the manual of the command by executing `man <command>` or by calling the command with its help optional argument by `<command> --help` or `help <command>`
 
 You can find the most commonly used commands with a short description below by categories
 
@@ -228,18 +228,19 @@ You can find the most commonly used commands with a short description below by c
 - Some useful shortcuts, which could be used with the some of the above-mentioned commands: 
   - `?` , a question mark can be used to indicate "any single character". 
   - `* `, an asterisk can be used to indicate "zero or more characters".
-    ~~~
-    #Instead of using 
-    $ cat test_1.txt test_2.txt test_3.txt
+  ~~~
+  #Instead of using 
+  $ cat test_1.txt test_2.txt test_3.txt
 
-    #Better usage is
-    $ cat test_?.txt
+  #Better usage is
+  $ cat test_?.txt
 
-    #An even better shorter solution is
-    $ cat test_*
-    ~~~
-    {: .language-bash}
-      
+  #An even better, shorter solution is
+  $ cat test_*
+  ~~~
+  {: .language-bash}
+  You are going to learn about `cat` command in the **Redirection** section. 
+
 ## Working with Commands
 - `type` will indicate how a command name is interpreted.
 
@@ -257,21 +258,53 @@ You can find the most commonly used commands with a short description below by c
 
 
 ## Redirection
-- `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. E.g. `cat my-code.py` prints the code in `my-code.py` to your screen. If you specify multiple files, they will be printed after each other.
+- `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
+  ~~~
+  $ cat my-code.py
+  ~~~
+  {: .language-bash}
 
-- `sort` will sort lines of text.
+If you specify multiple files, it will con`cat`enate (its name come frome here), meaning that linking together and output each o them, one after the other, as a single block of text as it could be seen at the end of the **Files and Directories Manipulation** section.
 
-- `uniq` will report or omit repeated lines.
+- `head` and `tail` shows you the first and last few lines of a text file, respectively. It has one positional argument, the text file. 
+  ~~~
+  $ head my-data.csv
+  $ tail my-data.csv
+  ~~~
+  {: .language-bash}
 
-- `grep` will print lines matching a pattern. 
+- `echo` will print the value of it's argument on your terminal screen.
+  ~~~
+  $ echo hello world!
+  ~~~
+  {: .language-bash}
 
-- `wc` will print newline, word, and byte counts for each file.
+  ~~~
+  hello world!
+  ~~~
+  {: .output}
 
-- `head` and `tail` shows you the first and last few lines of a text file, respectively. It has one positional argument, the text file. E.g. `tail my-data.csv`.
+- Some other useful commands and shortcuts: 
+  - `>` redirection operator will redirect standard output to another file instead of the screen. However, using this will *ALWAYS* overwrite the content of that file
 
-- `echo` will print the value of it's argument on your terminal screen. E.g. `echo hello world!` will pring `hello world!` in your terminal window.
+  - `>>` redirection operator will do the same as `>` does, **BUT** it will **not** overwrite the output file. Instead, it will append the content of that file. 
+
+  - `|` pipeline operator connect the ouput of one command with the input of a second command. 
+
+  - `sort` will sort lines of text.
+
+  - `uniq` will report or omit repeated lines.
+
+  - `wc` will print newline, word, and byte counts for each file. `wc -l` only counts the number of the lines.
+
+  - `grep` will print lines matching a pattern.  
+
+  For more information, please consult the **Chapter 6 - Redirection** in "The Linux Command Line" book. 
+
+## File Permissions 
+For a concise description, please visit the *File Permissions* section of the following link: <https://datacarpentry.org/shell-economics/03-working-with-files/index.html /> 
 
 # Useful resources for learning Terminal: 
-- Intro to the Command Line for Economics: <https://datacarpentry.org/shell-economics/>
-- Official Ubuntu tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview>
-- The Linux Command Line by William Shotts: <http://linuxcommand.org/tlcl.php>
+- Intro to the Command Line for Economics: <https://datacarpentry.org/shell-economics />
+- Official Ubuntu tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview />
+- The Linux Command Line by William Shotts: <http://linuxcommand.org/tlcl.php /> (freely available)
