@@ -115,6 +115,10 @@ The .git directory contains:
 - Software carpentry course (Strongly recommended): <https://swcarpentry.github.io/git-novice/>
 - Github Learning Lab: <https://lab.github.com/>
 - If you are really committed (pun intended): <https://git-scm.com/book/en/v2>
+- Getting started with Github: <https://help.github.com/en/github/getting-started-with-github>
+- Git cheatsheet: <https://education.github.com/git-cheat-sheet-education.pdf>
+- Learn git with bicbucket cloud: <https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud>
+
 
 ## Useful GUI tools for version control:
 - Sublime Merge: <https://www.sublimemerge.com>
