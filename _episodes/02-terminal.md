@@ -77,6 +77,9 @@ You can find the most commonly used commands with a short description below by c
 
 - `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files. E.g. `less my-code.py`. You can scroll up and down using the arrows on your keyboard and exit by pressing `q`. 
 
+- `file` will determine file type. 
+
+
 ## Files and Directories Manipulation
 - `cp` copies a file. It has two positional arguments, the source file and the target file. For example if you want to copy a file to the parent directory you can do it by `cp my-file.txt ../my-file.txt`. `cp` has a recursive option `-R` to copy folders (e.g. `cp -R my-folder/ ../` will copy `my-folder` to the parent directory.
 
@@ -98,15 +101,35 @@ You can find the most commonly used commands with a short description below by c
 
 
 ## Working with Commands
+- `type` will indicate how a command name is interpreted.
+
+- `which` will display which executable program will be executed.
+
+- `apropros` will display a list of appropriate commands.
+
+- `info` will display a command's info entry.
+
+- `whatis` will display one-line manual page descriptions.
+
+- `alias` will create an alias for a command 
+
+- `whoami` will remind you of your username. (Hope it will not forget your identity like Jackie Chan in the "Who am I?" movie)
+
 
 ## Redirection
 - `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. E.g. `cat my-code.py` prints the code in `my-code.py` to your screen. If you specify multiple files, they will be printed after each other.
 
+- `sort` will sort lines of text.
+
+- `uniq` will report or omit repeated lines.
+
+- `grep` will print lines matching a pattern. 
+
+- `wc` will print newline, word, and byte counts for each file.
+
 - `head` and `tail` shows you the first and last few lines of a text file, respectively. It has one positional argument, the text file. E.g. `tail my-data.csv`.
 
 - `echo` will print the value of it's argument on your terminal screen. E.g. `echo hello world!` will pring `hello world!` in your terminal window.
-
-
 
 # Useful resources for learning Terminal: 
 - Intro to the Command Line for Economics: https://datacarpentry.org/shell-economics/
