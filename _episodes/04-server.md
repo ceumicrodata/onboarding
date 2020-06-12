@@ -38,11 +38,13 @@ pure.percheron.ceu.hu does not have a graphical interface.
 ### Linux
 
 ssh YOURNAME@percheron.ceu.hu -p YOURSSHNUMBER
+
 ssh YOURNAME@pure.percheron.ceu.hu -p YOURSSHNUMBER
 
 ### MacOS
 
 ssh YOURNAME@percheron.ceu.hu -p YOURSSHNUMBER
+
 ssh YOURNAME@pure.percheron.ceu.hu -p YOURSSHNUMBER
 
 For the graphical server a useful tool is XQuartz.
