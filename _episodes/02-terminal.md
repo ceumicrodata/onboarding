@@ -85,7 +85,7 @@ You can find the most commonly used commands with a short description below by c
   #going up to the parent directory 
   $ cd ..
 
-  #going to the Desktop directory in the #home directory
+  #going to the Desktop directory in the home directory
   $ cd ~/Dekstop
   ~~~
   {: .language-bash}
@@ -106,7 +106,7 @@ You can find the most commonly used commands with a short description below by c
   #On MacOS
   $ open my-picture.png
 
-  #On any Linux distros 
+  #On (most) Linux distros 
   $ xdg-open my-picture.png
   ~~~
   {: .language-bash}
@@ -156,29 +156,90 @@ You can find the most commonly used commands with a short description below by c
   #Copy a file to the parent folder
   $ cp my-file.txt ../my-file.txt
 
-  #Copy a folder to the parent folder by #using -R recursive option 
+  #Copy a folder to the parent folder by using -R recursive option 
   $ cp -R my-folder/ ../
   ~~~
   {: .language-bash}
 
 
-- `mv` moves a file or folder. It has two positional arguments, the source and the target path. For example `mv my-file.txt ../` will move `my-file.txt` to the parent directory. `mv my-folder/ ../` will move the directory `my-folder` and it's contents to the parent directory. It is also the way to rename files (e.g. `mv old-filename.txt new-filename.txt` will rename `old-filename.txt` to `new-filename.txt`.
+- `mv` moves a file or folder. It has two positional arguments, the source and the target path. 
+  ~~~
+  #Move the directory "my-folder" and its content to the parent directory
+  $ mv my-file.txt ../
+  ~~~
+  {: .language-bash}
 
-- `mkdir` creates a new folder in the current working directory. It has a single positional argument, which is the name of the new folder. E.g. `mkdir my-new-folder`. It can also have multiple optional arguments if you wish to create multiple folders. E.g. `mkdir dir1 dir2 dir3`. It is even possible to create nested folder structures by providing the `-p` argument. E.g. `mkdir -p dir4/dir5/dir6`
+  It is also the way to rename files.
+  ~~~
+  #"old-filename.txt" will be renamed to "new-filename.txt"
+  $ mv old-filename.txt new-filename.txt
+  ~~~
+  {: .language-bash}
 
+
+- `mkdir` creates a new folder in the current working directory. It has a single positional argument, which is the name of the new folder.
+  ~~~
+  $ mkdir my-new-folder
+  ~~~
+  {: .language-bash}
+
+  It can also have multiple optional arguments if you wish to create multiple folders.
+  ~~~
+  $ mkdir dir1 dir2 dir3
+  ~~~
+  {: .language-bash}
+  
+  It is even possible to create nested folder structures by providing the `-p` argument. 
+  ~~~
+  $ mkdir -p dir4/dir5/dir6
+  ~~~
+  {: .language-bash}
+  
 - `rmdir` removes an empty directory. It's only positional argument is the folder to be removed. It only removes empty folders, you need to delete it's content first.
 
-- `rm` removes a file. It has a positional argument, which is a list of files to be removed. You can give multiple files separated by spaces to remove. Examples: `rm my-text.txt` will remove `my-text.txt`, while `rm my-text.txt my-data.dta` will remove both `my-text.txt` and `my-data.dta`. IMPORTANT: If you remove a file by `rm` it will be permanently deleted, be careful with it.
+- `rm` removes a file. It has a positional argument, which is a list of files to be removed. You can give multiple files separated by spaces to remove. 
+  ~~~
+  #Remove a single file
+  $ rm my-text.txt
 
-- Recursive `rm` removes a directory with all of its subdirectories and files. It can be accessed with the `-r` optional argument. E.g. `rm my_folder/ -r`. IMPORTANT: Recursive `rm` will remove the directory with all of it's content permanently.
+  #Remove multiple files
+  $ rm my-text.txt my-data.dta
+  ~~~
+  {: .language-bash}
 
-- Recursive forced `rm` removes a directory with all of its subfolders and files even if the files are read-only. It can be executed using the `rf` optional argument. E.g. `rm my_folder/ -rf`. IMPORTANT: deletion is permanent. You should not use it in general, it is only a last resort. The presence of read-only files strongly suggests that they should not be deleted using `rm`, but in some other ways (e.g. `bead nuke` in case of beads). There are some cases when this is useful, but use it with care and only if it is unavoidable.
+  **IMPORTANT**: If you remove a file by `rm` it will be **permanently** deleted, be careful with it!
 
-- Some useful shortcuts, which could be used with the above-mentioned commands: 
-  - `?` , a question mark can be used to indicate "any single character". For example, instead of using `cat test_1.txt test_2.txt test_3.txt`, you may use `cat test_?.txt`
-  - `* `, an asterisk can be used to indicate "zero or more characters". For example, instead of using the above-mentioned solutions, you may wish to use `cat test_*`
+- Recursive `rm` removes a directory with all of its subdirectories and files. It can be accessed with the `-r` optional argument. 
+  ~~~
+  $ rm my_folder/ -r
+  ~~~
+  {: .language-bash}
 
+  **IMPORTANT**: Recursive `rm` will remove the directory with all of it's content **permanently**.
 
+- Recursive forced `rm` removes a directory with all of its subfolders and files even if the files are read-only. It can be executed using the `rf` optional argument.
+  ~~~
+  $ rm my_folder/ -rf
+  ~~~
+  {: .language-bash}
+
+  **IMPORTANT**: deletion is **permanent**. You should not use it in general, it is only a last resort. The presence of read-only files strongly suggests that they should not be deleted using `rm`, but in some other ways (e.g. `bead nuke` in case of beads). There are some cases when this is useful, but use it with care and only if it is unavoidable.
+
+- Some useful shortcuts, which could be used with the some of the above-mentioned commands: 
+  - `?` , a question mark can be used to indicate "any single character". 
+  - `* `, an asterisk can be used to indicate "zero or more characters".
+    ~~~
+    #Instead of using 
+    $ cat test_1.txt test_2.txt test_3.txt
+
+    #Better usage is
+    $ cat test_?.txt
+
+    #An even better shorter solution is
+    $ cat test_*
+    ~~~
+    {: .language-bash}
+      
 ## Working with Commands
 - `type` will indicate how a command name is interpreted.
 
@@ -211,6 +272,6 @@ You can find the most commonly used commands with a short description below by c
 - `echo` will print the value of it's argument on your terminal screen. E.g. `echo hello world!` will pring `hello world!` in your terminal window.
 
 # Useful resources for learning Terminal: 
-- Intro to the Command Line for Economics: https://datacarpentry.org/shell-economics/
-- Official Ubuntu tutorial: https://ubuntu.com/tutorials/command-line-for-beginners#1-overview
-- The Linux Command Line by William Shotts: http://linuxcommand.org/tlcl.php
+- Intro to the Command Line for Economics: <https://datacarpentry.org/shell-economics/>
+- Official Ubuntu tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview>
+- The Linux Command Line by William Shotts: <http://linuxcommand.org/tlcl.php>
