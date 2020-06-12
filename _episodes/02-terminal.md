@@ -52,51 +52,64 @@ You can find the most commonly used commands with a short description below by c
 ## Navigation
 - `pwd` returns the path to the current working directory. In most cases this is part of the command prompt, however, if you are deep down in the folder structure, the command prompt will only display a few parent directories.
 
-~~~
-$ pwd
-~~~
-{: .language-bash}
+  ~~~
+  $ pwd
+  ~~~
+  {: .language-bash}
 
-- `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path (e.g. `cd /srv/dropbox_encrypted/`) or a relative path (e.g. `cd ../../srv/dropbox_encrypted/`). In relative paths you can reference the parent directory by two dots `..`, thus if you want to go to the parent directory, you should issue `cd ..`.  Some more commonly used `cd` commands: 
-  - `cd /` will bring you to the *root* folder.
-  - `cd ..` will bring you up to the parent directory.
-  - `cd ../..` will move you up through multiple levels of parent directories.
-  - `cd`  will take you to your home directory. 
-  - `cd ~/Dekstop` will take you to the Desktop, where the tilde ("~") character is a shortcut for indicating the home directory 
+  ~~~
+  ~/Documents/GitRepos/CEU_MD_Onboard/onboarding/
+  ~~~
+  {: .output}
 
-~~~
-#going to home directory
-$ cd
+  Now, we are at the *~/Documents/GitRepos/CEU_MD_Onboard/onboarding/* after typing the `pwd`. (Don't worry about the tilde ("~") sign. You are going to learn about it in a minute. 
 
-#going to Desktop in the home directory
-$cd ~/Desktop
+- `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path or a relative path. 
+  ~~~
+  #absolute path
+  $ cd /srv/dropbox_encrypted/   
 
-#absolute path
-$ cd /srv/dropbox_encrypted/   
+  #relative path
+  $ cd ../../srv/dropbox_encrypted/ 
+  ~~~
+  {: .language-bash}
 
-#relative path
-$ cd ../../srv/dropbox_encrypted/ 
-~~~
-{: .language-bash}
+  In relative paths you can reference the parent directory by two dots `..`, thus if you want to go to the parent directory, you should issue `cd ..`.  Some more commonly used `cd` commands:
+  ~~~
+  #Going to your home directory
+  $ cd  
 
+  #going to the root folder
+  $ cd /
 
-- `start` will open a file in the default application associated with it on **Windows**. E.g. `start my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Windows.
+  #going up to the parent directory 
+  $ cd ..
 
-- `open` will open a file in the default application associated with it on **MacOS**. E.g. `open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on MacOS.
+  #going to the Desktop directory in the #home directory
+  $ cd ~/Dekstop
+  ~~~
+  {: .language-bash}
 
-- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other **Linux** distributions. E.g. `xdg-open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Ubuntu and a set of other linux distributions.
+  The tilde ("~") character in the last command is a shortcut for indicating the home directory.
 
-~~~
-#in Windows
-$ cd start my-picture.png
+- `start` will open a file in the default application associated with it on **Windows** (aka your default application on Windows).
 
-#in MacOS
-$open my-picture.png
+- `open` will open a file in the default application associated with it on **MacOS** (aka your default application on MacOS). 
 
-#in Linux 
-$ xdg-open my-picture  
-~~~
-{: .language-bash}
+- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other **Linux** distributions (aka your default application on any Linux distros). 
+
+  The example is opening a picture in the default picture viewer.
+  ~~~
+  #On Windows
+  $ start my-picture.png
+
+  #On MacOS
+  $ open my-picture.png
+
+  #On any Linux distros 
+  $ xdg-open my-picture.png
+  ~~~
+  {: .language-bash}
 
 ## File System Exploaration
 - `ls` lists the content of the current working directory. It has a wide set of optional arguments that you can combine to get a listing you prefer. A few of these are:
@@ -108,33 +121,46 @@ $ xdg-open my-picture
   - `-h` will display the file sizes in a human-readable format.
   - You can combine these options, so for example `ls -ltrha` will list all files, including hidden ones, in a list where one file will be one line, and the oldest file will be the first (notice the revert option, that is why it's not the newest) and file sizes will be human-readable.
 
-~~~
-$ ls -ltrha  
-~~~
-{: .language-bash} 
+  ~~~
+  $ ls -ltrha  
+  ~~~
+  {: .language-bash} 
 
-- `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files. E.g. `less my-code.py`. You can scroll up and down using the arrows on your keyboard and exit by pressing `q`. 
+- `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files.
+  ~~~
+  $ less trial.py 
+  ~~~
+  {: .language-bash} 
 
-~~~
-$ less trial.py 
-~~~
-{: .language-bash} 
+  You can scroll up and down using the arrows on your keyboard and exit by pressing `q`.
+
+  FIXME: Adding a table of useful `less` associated keyboard combos
+
 
 - `file` will determine file type. In fact, one of the common ideas in Unix-like operating systems such as Linux is that “everything is a file.”
 
-~~~
-$ file picture.jpg 
-~~~
-{: .language-bash}
+  ~~~
+  $ file picture.jpg 
+  ~~~
+  {: .language-bash}
 
-~~~
-picture.jpg: JPEG image data, JFIF standard 1.01  
-~~~
-{: .output} 
+  ~~~
+  picture.jpg: JPEG image data, JFIF standard 1.01  
+  ~~~
+  {: .output} 
 
 
 ## Files and Directories Manipulation
-- `cp` copies a file. It has two positional arguments, the source file and the target file. For example if you want to copy a file to the parent directory you can do it by `cp my-file.txt ../my-file.txt`. `cp` has a recursive option `-R` to copy folders (e.g. `cp -R my-folder/ ../` will copy `my-folder` to the parent directory.
+- `cp` copies a file. It has two positional arguments, the source file and the target file. 
+  ~~~
+  #Copy a file to the parent folder
+  $ cp my-file.txt ../my-file.txt
+
+  #Copy a folder to the parent folder by #using -R recursive option 
+  $ cp -R my-folder/ ../
+  ~~~
+  {: .language-bash}
+
 
 - `mv` moves a file or folder. It has two positional arguments, the source and the target path. For example `mv my-file.txt ../` will move `my-file.txt` to the parent directory. `mv my-folder/ ../` will move the directory `my-folder` and it's contents to the parent directory. It is also the way to rename files (e.g. `mv old-filename.txt new-filename.txt` will rename `old-filename.txt` to `new-filename.txt`.
 
