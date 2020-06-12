@@ -52,6 +52,11 @@ You can find the most commonly used commands with a short description below by c
 ## Navigation
 - `pwd` returns the path to the current working directory. In most cases this is part of the command prompt, however, if you are deep down in the folder structure, the command prompt will only display a few parent directories.
 
+~~~
+$ pwd
+~~~
+{: .language-bash}
+
 - `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path (e.g. `cd /srv/dropbox_encrypted/`) or a relative path (e.g. `cd ../../srv/dropbox_encrypted/`). In relative paths you can reference the parent directory by two dots `..`, thus if you want to go to the parent directory, you should issue `cd ..`.  Some more commonly used `cd` commands: 
   - `cd /` will bring you to the *root* folder.
   - `cd ..` will bring you up to the parent directory.
