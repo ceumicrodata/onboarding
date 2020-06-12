@@ -64,11 +64,39 @@ $ pwd
   - `cd`  will take you to your home directory. 
   - `cd ~/Dekstop` will take you to the Desktop, where the tilde ("~") character is a shortcut for indicating the home directory 
 
-- `start` will open a file in the default application associated with it on Windows. E.g. `start my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Windows.
+~~~
+#going to home directory
+$ cd
 
-- `open` will open a file in the default application associated with it on MacOS. E.g. `open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on MacOS.
+#going to Desktop in the home directory
+$cd ~/Desktop
 
-- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other linux distributions. E.g. `xdg-open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Ubuntu and a set of other linux distributions.
+#absolute path
+$ cd /srv/dropbox_encrypted/   
+
+#relative path
+$ cd ../../srv/dropbox_encrypted/ 
+~~~
+{: .language-bash}
+
+
+- `start` will open a file in the default application associated with it on **Windows**. E.g. `start my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Windows.
+
+- `open` will open a file in the default application associated with it on **MacOS**. E.g. `open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on MacOS.
+
+- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other **Linux** distributions. E.g. `xdg-open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Ubuntu and a set of other linux distributions.
+
+~~~
+#in Windows
+$ cd start my-picture.png
+
+#in MacOS
+$open my-picture.png
+
+#in Linux 
+$ xdg-open my-picture  
+~~~
+{: .language-bash}
 
 ## File System Exploaration
 - `ls` lists the content of the current working directory. It has a wide set of optional arguments that you can combine to get a listing you prefer. A few of these are:
@@ -80,9 +108,29 @@ $ pwd
   - `-h` will display the file sizes in a human-readable format.
   - You can combine these options, so for example `ls -ltrha` will list all files, including hidden ones, in a list where one file will be one line, and the oldest file will be the first (notice the revert option, that is why it's not the newest) and file sizes will be human-readable.
 
+~~~
+$ ls -ltrha  
+~~~
+{: .language-bash} 
+
 - `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files. E.g. `less my-code.py`. You can scroll up and down using the arrows on your keyboard and exit by pressing `q`. 
 
-- `file` will determine file type. 
+~~~
+$ less trial.py 
+~~~
+{: .language-bash} 
+
+- `file` will determine file type. In fact, one of the common ideas in Unix-like operating systems such as Linux is that “everything is a file.”
+
+~~~
+$ file picture.jpg 
+~~~
+{: .language-bash}
+
+~~~
+picture.jpg: JPEG image data, JFIF standard 1.01  
+~~~
+{: .output} 
 
 
 ## Files and Directories Manipulation
