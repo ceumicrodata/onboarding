@@ -45,10 +45,73 @@ In order to use your computer via the Terminal, you will have to type commands a
 
 # The most important Terminal commands
 Terminal commands can be executed by pressing enter after typing them. The general structure of a command is the following:
-`command <positional arguments> <optional arguments>`. Some commands work by themselves, while others require arguments (for example if you want to change the working directory, you have to specify the new working directory). Positional arguments always have to be specified, while optional arguments are, as their name suggests, optional. You can almost always get a detailed explanation on the positional and optional arguments by opening up the manual of the command by executing `man <command>` or by calling the command with it's help optional argument by `<command> --help`.
+`command <positional arguments> <optional arguments>`. Some commands work by themselves, while others require arguments (for example if you want to change the working directory, you have to specify the new working directory). Positional arguments always have to be specified, while optional arguments are, as their name suggests, optional. You can almost always get a detailed explanation on the positional and optional arguments by opening up the manual of the command by executing `man <command>` or by calling the command with its help optional argument by `<command> --help` or `help <command>`
 
-You can find the most commonly used commands with a short description below:
+You can find the most commonly used commands with a short description below by categories
+
+## Navigation
 - `pwd` returns the path to the current working directory. In most cases this is part of the command prompt, however, if you are deep down in the folder structure, the command prompt will only display a few parent directories.
+
+  ~~~
+  $ pwd
+  ~~~
+  {: .language-bash}
+
+  ~~~
+  ~/Documents/GitRepos/CEU_MD_Onboard/onboarding/
+  ~~~
+  {: .output}
+
+  Now, we are at the *~/Documents/GitRepos/CEU_MD_Onboard/onboarding/* after typing the `pwd`. (Don't worry about the tilde ("~") sign. You are going to learn about it in a minute. 
+
+- `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path or a relative path. 
+  ~~~
+  #absolute path
+  $ cd /srv/dropbox_encrypted/   
+
+  #relative path
+  $ cd ../../srv/dropbox_encrypted/ 
+  ~~~
+  {: .language-bash}
+
+  In relative paths you can reference the parent directory by two dots `..`, thus if you want to go to the parent directory, you should issue `cd ..`.  Some more commonly used `cd` commands:
+  ~~~
+  #Going to your home directory
+  $ cd  
+
+  #going to the root folder
+  $ cd /
+
+  #going up to the parent directory 
+  $ cd ..
+
+  #going to the Desktop directory in the home directory
+  $ cd ~/Dekstop
+  ~~~
+  {: .language-bash}
+
+  The tilde ("~") character in the last command is a shortcut for indicating the home directory.
+
+- `start` will open a file in the default application associated with it on **Windows** (aka your default application on Windows).
+
+- `open` will open a file in the default application associated with it on **MacOS** (aka your default application on MacOS). 
+
+- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other **Linux** distributions (aka your default application on any Linux distros). 
+
+  The example is opening a picture in the default picture viewer.
+  ~~~
+  #On Windows
+  $ start my-picture.png
+
+  #On MacOS
+  $ open my-picture.png
+
+  #On (most) Linux distros 
+  $ xdg-open my-picture.png
+  ~~~
+  {: .language-bash}
+
+## File System Exploaration
 - `ls` lists the content of the current working directory. It has a wide set of optional arguments that you can combine to get a listing you prefer. A few of these are:
   - `-l` will give you the list of files with one file in one line, and it will include additional information on file permissions, file owners, file size and modification date.
   - `-a` will list all files and folders including hidden ones.
@@ -57,21 +120,177 @@ You can find the most commonly used commands with a short description below:
   - `-r` will revert the order of files before listing them.
   - `-h` will display the file sizes in a human-readable format.
   - You can combine these options, so for example `ls -ltrha` will list all files, including hidden ones, in a list where one file will be one line, and the oldest file will be the first (notice the revert option, that is why it's not the newest) and file sizes will be human-readable.
-- `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path (e.g. `cd /srv/dropbox_encrypted/`) or a relative path (e.g. `cd ../../srv/dropbox_encrypted/`). In relative paths you can reference the parent directory by two dots `..`, thus if you want to go to the parent directory, you should issue `cd ..`.  
-- `mkdir` creates a new folder in the current working directory. It has a single positional argument, which is the name of the new folder. E.g. `mkdir my-new-folder`
+
+  ~~~
+  $ ls -ltrha  
+  ~~~
+  {: .language-bash} 
+
+- `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files.
+  ~~~
+  $ less trial.py 
+  ~~~
+  {: .language-bash} 
+
+  You can scroll up and down using the arrows on your keyboard and exit by pressing `q`.
+
+  FIXME: Adding a table of useful `less` associated keyboard combos
+
+
+- `file` will determine file type. In fact, one of the common ideas in Unix-like operating systems such as Linux is that “everything is a file.”
+
+  ~~~
+  $ file picture.jpg 
+  ~~~
+  {: .language-bash}
+
+  ~~~
+  picture.jpg: JPEG image data, JFIF standard 1.01  
+  ~~~
+  {: .output} 
+
+
+## Files and Directories Manipulation
+- `cp` copies a file. It has two positional arguments, the source file and the target file. 
+  ~~~
+  #Copy a file to the parent folder
+  $ cp my-file.txt ../my-file.txt
+
+  #Copy a folder to the parent folder by using -R recursive option 
+  $ cp -R my-folder/ ../
+  ~~~
+  {: .language-bash}
+
+
+- `mv` moves a file or folder. It has two positional arguments, the source and the target path. 
+  ~~~
+  #Move the directory "my-folder" and its content to the parent directory
+  $ mv my-file.txt ../
+  ~~~
+  {: .language-bash}
+
+  It is also the way to rename files.
+  ~~~
+  #"old-filename.txt" will be renamed to "new-filename.txt"
+  $ mv old-filename.txt new-filename.txt
+  ~~~
+  {: .language-bash}
+
+
+- `mkdir` creates a new folder in the current working directory. It has a single positional argument, which is the name of the new folder.
+  ~~~
+  $ mkdir my-new-folder
+  ~~~
+  {: .language-bash}
+
+  It can also have multiple optional arguments if you wish to create multiple folders.
+  ~~~
+  $ mkdir dir1 dir2 dir3
+  ~~~
+  {: .language-bash}
+  
+  It is even possible to create nested folder structures by providing the `-p` argument. 
+  ~~~
+  $ mkdir -p dir4/dir5/dir6
+  ~~~
+  {: .language-bash}
+  
 - `rmdir` removes an empty directory. It's only positional argument is the folder to be removed. It only removes empty folders, you need to delete it's content first.
-- `rm` removes a file. It has a positional argument, which is a list of files to be removed. You can give multiple files separated by spaces to remove. Examples: `rm my-text.txt` will remove `my-text.txt`, while `rm my-text.txt my-data.dta` will remove both `my-text.txt` and `my-data.dta`. IMPORTANT: If you remove a file by `rm` it will be permanently deleted, be careful with it.
-- Recursive `rm` removes a directory with all of its subdirectories and files. It can be accessed with the `-r` optional argument. E.g. `rm my_folder/ -r`. IMPORTANT: Recursive `rm` will remove the directory with all of it's content permanently.
-- Recursive forced `rm` removes a directory with all of its subfolders and files even if the files are read-only. It can be executed using the `rf` optional argument. E.g. `rm my_folder/ -rf`. IMPORTANT: deletion is permanent. You should not use it in general, it is only a last resort. The presence of read-only files strongly suggests that they should not be deleted using `rm`, but in some other ways (e.g. `bead nuke` in case of beads). There are some cases when this is useful, but use it with care and only if it is unavoidable.
-- `cp` copies a file. It has two positional arguments, the source file and the target file. For example if you want to copy a file to the parent directory you can do it by `cp my-file.txt ../my-file.txt`. `cp` has a recursive option `-R` to copy folders (e.g. `cp -R my-folder/ ../` will copy `my-folder` to the parent directory.
-- `mv` moves a file or folder. It has two positional arguments, the source and the target path. For example `mv my-file.txt ../` will move `my-file.txt` to the parent directory. `mv my-folder/ ../` will move the directory `my-folder` and it's contents to the parent directory. It is also the way to rename files (e.g. `mv old-filename.txt new-filename.txt` will rename `old-filename.txt` to `new-filename.txt`.
-- `start` will open a file in the default application associated with it on Windows. E.g. `start my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Windows.
-- `open` will open a file in the default application associated with it on MacOS. E.g. `open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on MacOS.
-- `xdg-open` will open a file in the default application associated with it on Ubuntu and many other linux distributions. E.g. `xdg-open my-picture.png` will open `my-picture` in your default picture viewer software. This command only works on Ubuntu and a set of other linux distributions.
-- `less` will show you the content of a text file. It has one positional argument, the text file. It's worth noting that it can be any text file, for example `.py` python codes can be viewed as well as `.csv` data files. E.g. `less my-code.py`. You can scroll up and down using the arrows on your keyboard and exit by pressing `q`.
-- `tail` shows you the last few lines of a text file. It has one positional argument, the text file. E.g. `tail my-data.csv`.
-- `cat`  will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. E.g. `cat my-code.py` prints the code in `my-code.py` to your screen. If you specify multiple files, they will be printed after each other.
-- `echo` will print the value of it's argument on your terminal screen. E.g. `echo hello world!` will pring `hello world!` in your terminal window.
 
-{% include links.md %}
+- `rm` removes a file. It has a positional argument, which is a list of files to be removed. You can give multiple files separated by spaces to remove. 
+  ~~~
+  #Remove a single file
+  $ rm my-text.txt
 
+  #Remove multiple files
+  $ rm my-text.txt my-data.dta
+  ~~~
+  {: .language-bash}
+
+  **IMPORTANT**: If you remove a file by `rm` it will be **permanently** deleted, be careful with it!
+
+- Recursive `rm` removes a directory with all of its subdirectories and files. It can be accessed with the `-r` optional argument. 
+  ~~~
+  $ rm my_folder/ -r
+  ~~~
+  {: .language-bash}
+
+  **IMPORTANT**: Recursive `rm` will remove the directory with all of it's content **permanently**.
+
+- Recursive forced `rm` removes a directory with all of its subfolders and files even if the files are read-only. It can be executed using the `rf` optional argument.
+  ~~~
+  $ rm my_folder/ -rf
+  ~~~
+  {: .language-bash}
+
+  **IMPORTANT**: deletion is **permanent**. You should not use it in general, it is only a last resort. The presence of read-only files strongly suggests that they should not be deleted using `rm`, but in some other ways (e.g. `bead nuke` in case of beads). There are some cases when this is useful, but use it with care and only if it is unavoidable.
+
+- Some useful shortcuts which could be used with the some of the above-mentioned commands: 
+  - `?` , a question mark can be used to indicate "any single character". 
+  - `* `, an asterisk can be used to indicate "zero or more characters".
+
+  ~~~
+  #Instead of using 
+  $ cat test_1.txt test_2.txt test_3.txt
+
+  #Better usage is
+  $ cat test_?.txt
+
+  #An even shorter solution is
+  $ cat test_*  
+  ~~~
+  {: .language-bash}
+
+  You are going to learn about `cat` command in the next section. 
+
+## Redirection
+- `cat` will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
+  ~~~
+  $ cat my-code.py
+  ~~~
+  {: .language-bash}
+
+If you specify multiple files, it will con`cat`enate (its name comes from here), meaning that linking together and output each of them, one after the other, as a single block of text as it could be seen at the end of the **Files and Directories Manipulation** section.
+
+- `head` and `tail` shows you the first and last few lines of a text file, respectively. It has one positional argument, the text file. 
+  ~~~
+  $ head my-data.csv
+  $ tail my-data.csv
+  ~~~
+  {: .language-bash}
+
+- `echo` will print the value of its argument on your terminal screen.
+  ~~~
+  $ echo hello world!
+  ~~~
+  {: .language-bash}
+
+  ~~~
+  hello world!
+  ~~~
+  {: .output}
+
+- Some, other useful commands and shortcuts: 
+  - `>` redirection operator will redirect standard output to another file instead of the screen. However, using this will *ALWAYS* overwrite the content of that file
+
+  - `>>` redirection operator will do the same as `>` does, **BUT** it will **not** overwrite the output file. Instead, it will append the content of that file. 
+
+  - `|` pipeline operator connects the ouput of one command with the input of a second command. 
+
+  - `sort` will sort lines of text.
+
+  - `uniq` will report or omit repeated lines.
+
+  - `wc` will print newline, word, and byte counts for each file. `wc -l` only counts the number of the lines.
+
+  - `grep` will print lines matching a pattern.  
+
+  For more information, please consult the **Chapter 6 - Redirection** in "The Linux Command Line" book. 
+
+## File Permissions 
+For concise description, please visit the *File Permissions* section of the following link: <https://datacarpentry.org/shell-economics/03-working-with-files/index.html /> 
+
+# Useful resources for learning Terminal: 
+- Introdutction to the Command Line for Economics: <https://datacarpentry.org/shell-economics />
+- Official Ubuntu tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview />
+- The Linux Command Line by William Shotts: <http://linuxcommand.org/tlcl.php /> (freely available)
