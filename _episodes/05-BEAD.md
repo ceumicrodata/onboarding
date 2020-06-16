@@ -54,7 +54,7 @@ To see how workspaces are created from beads and vice versa, also see [usecases]
 A *workspace* is a directory, where the user works. It contains a prototype of a *bead* - it is a computation under active development. At some time however it is supposed to have all the inputs, code and output of a computation.
 
 The directory has special structure and content, so it must be created via the `bead` tool:
-- there are metadata in a hidden .bead-meta directory
+- there are metadata in a hidden .bead-meta directory which .txt file enumerate all the inputs and the bead unique hash id.
 - there are 3 standard directories with special meanings:
   - `input`: where input data is read from. It is read only, managed by the `bead` tool.
   - `temp`: temporary outputs, this is an area that is ignored when saving the bead.
@@ -128,6 +128,39 @@ cd -
 
 ![Workflows]({{ page.root }}/fig/workflows.png)
 
+## Bead help
+
+The bead help guide you through the usage of the bead. 
+
+$ bead -h
+
+positional arguments:
+  {new,develop,save,status,nuke,version,input,box}
+    new                 Create and initialize new workspace directory with a
+                        new bead.
+    develop             Create workspace from specified bead.
+    save                Save workspace in a box.
+    status              Show workspace information.
+    nuke                Delete workspace.
+    version             Show program version.
+    input               Manage data loaded from other beads...
+    box                 Manage bead boxes...
+
+optional arguments:
+  -h, --help            show this help message and exit
+  
+All the positional arguments have own subcommands with complete help. For example: `bead new -h`. 
+
+usage: bead new [-h] DIRECTORY
+
+Create and initialize new workspace directory with a new bead.
+
+positional arguments:
+  DIRECTORY   bead and directory to create
+
+optional arguments:
+  -h, --help  show this help message and exit
+
 ## Create a new bead
 
 Initial setup:
@@ -155,13 +188,13 @@ Add some data to the output of this new bead which we can use later. This bead h
 {: .bash}
     
 ```
-/somepath/name$ bead save
+/somepath/name$ bead save main
 Successfully stored bead.
 ```
 {: .bash}
     
 ```
-/somepath/name$ bead nuke
+/somepath/name$ bead nuke name
 Deleted workspace /somepath/name
 ```
 {: .bash}
@@ -217,7 +250,7 @@ Hello World!
 Save our new bead:
 
 ```
-/somepath/hello$ bead save
+/somepath/hello$ bead save main
 Successfully stored bead.
 ```
 {: .bash}
