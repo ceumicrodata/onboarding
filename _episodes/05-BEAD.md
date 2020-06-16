@@ -133,6 +133,7 @@ cd -
 The bead help guide you through the usage of the bead. 
 
 $ bead -h
+
 ```
 positional arguments:
   {new,develop,save,status,nuke,version,input,box}
@@ -150,7 +151,9 @@ optional arguments:
   -h, --help            show this help message and exit
 ```
 
-All the positional arguments have own subcommands with complete help. For example: `bead new -h`. 
+All the positional arguments have own subcommands with complete help. 
+
+$ bead new -h 
 
 ```
 usage: bead new [-h] DIRECTORY
