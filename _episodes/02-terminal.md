@@ -30,16 +30,16 @@ However, as mentioned before, the command line interpreter is just a software. S
 
 ## The Terminal
 The CLI that we are going to use is called the Terminal (on Unix-like systems) or Git-bash (on Windows). From here on, they both will be referenced as the Terminal. If you open a Terminal window, you are supposed to see an almost-blank window with something like this written on it:
-> `kisso@percheron2:~$`
+> `johndoe@percheron2:~$`
 
 It should be followed by a blinking cursor. This is called the command prompt. It tells you some important information about where you are currently working. It is structured the following way:
-> username@machine:current_directory$
+> `username@machine:current_directory$`
 
 These are possibly the most important pieces of information that you need to be aware of when using the CLI. What do they tell you?
 1. username: This is your username on your computer. In most cases it will not change. In many systems you can switch to a user called root, that can do anything on the computer that a standard user cannot. You should only see your username there, if it changes you should close the Terminal and start a new session unless you are really sure about what you are doing.
 2. machine: This is separated from the username by an `@` sign in most cases. It will change for example if you log in to the server. You will be able to control the MicroData servers using the Terminal as well. It is important to know whether you are controlling your own computer or the server in the Terminal window, always make sure that you are working on the proper machine.
 3. current_directory: This is usually separated from the name of the machine by a colon. In many operating systems you have something called your home folder or user folder. It is usually referenced in the Terminal by the `~` sign. If you change the working directory (which will be discussed in a second), it will change accordingly. For example on an other machine and in a different folder it might be something like this:
-> `kisso@kisso-TravelMate-P236-M:~/Documents/onboarding/_episodes`
+> `johndoe@johndoe-DELL:~/Documents/onboarding/_episodes`
 
 In order to use your computer via the Terminal, you will have to type commands and press enter. They will be executed one-by-one. The rest of this episode will be about the most important commands in the Terminal.
 
@@ -47,7 +47,7 @@ In order to use your computer via the Terminal, you will have to type commands a
 Terminal commands can be executed by pressing enter after typing them. The general structure of a command is the following:
 `command <positional arguments> <optional arguments>`. Some commands work by themselves, while others require arguments (for example if you want to change the working directory, you have to specify the new working directory). Positional arguments always have to be specified, while optional arguments are, as their name suggests, optional. You can almost always get a detailed explanation on the positional and optional arguments by opening up the manual of the command by executing `man <command>` or by calling the command with its help optional argument by `<command> --help` or `help <command>`
 
-You can find the most commonly used commands with a short description below by categories
+You can find the most commonly used commands with a short description below by categories. If you prefer, you can check out [this Carpentries page](https://datacarpentry.org/shell-economics/), which contains a more detailed walkthrough for each command.
 
 ## Navigation
 - `pwd` returns the path to the current working directory. In most cases this is part of the command prompt, however, if you are deep down in the folder structure, the command prompt will only display a few parent directories.
