@@ -17,45 +17,51 @@ objectives:
 ## The servers and some basic information
 
 Microdata currently uses two servers.
-- percheron.ceu.hu (function: STATA/Matlab with graphical interface)
-- pure.percheron.ceu.hu (function: STATA/Matlab/Python etc with command-line interface only)
+- percheron1: percheron.ceu.hu - function: STATA/Matlab with graphical interface
+- percheron2: pure.percheron.ceu.hu - function: STATA/Matlab/Python etc. with command-line interface only
 
-The percheron server has 30GB RAM memory and 16 cores, while the pure percheron has 86GB RRAM and 44 cores.
-Therefore, pure percheron should be used for running memory intensive processes.
+The percheron1 server has 30GB memory and 16 cores, while percheron2 has 86GB RAM and 44 cores.
+Therefore, percheron2 should be used for running memory/computation intensive processes.
 
 ## Connecting to the servers from different local operating systems
 
-First, you have to the CEU network through VPN (e.g. Cisco AnyConnect).
+First, you have to be connected tothe CEU network through VPN. You can use the AnyConnect client or the openconnect package depending on your OS.
 For more information on VPN usage please visit <http://www.it.ceu.edu/vpn> and <http://docs.microdata.io/vpn>.
 
-You can access the shell (command line) on both percheron.ceu.hu and pure.percheron.ceu.hu by using a Secure Shell (ssh) client, such as Putty (http://docs.microdata.io/putty).
+You can access the shell (command line) on both percheron.ceu.hu and pure.percheron.ceu.hu by using a Secure Shell (ssh) client, such as Putty (http://docs.microdata.io/putty). On UNIX-like systems the built-in ssh package allows you to connect without any additional software.
 This is where you can change your password, or where you can start batch jobs from the shell.
 
-You can connect to the graphical interface (windows-like) on percheron.ceu.hu via VNC.
+You can connect to the graphical interface (windows-like) on percheron.ceu.hu via a VNC client. On UNIX-like systems using X-server (e.g. Ubuntu) you can simply allow X11 forwarding in an ssh connection by using the `-x` optional argument and don't need a VNC client.
 pure.percheron.ceu.hu does not have a graphical interface.
 
 
 ### Linux
-
-ssh YOURNAME@percheron.ceu.hu -p YOURSSHNUMBER
-
-ssh YOURNAME@pure.percheron.ceu.hu -p YOURSSHNUMBER
+You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropriately):
+  ~~~
+  $ ssh USER@percheron.ceu.hu -p PORT -x
+  $ ssh USER@pure.percheron.ceu.hu -p PORT
+  ~~~
+  {: .language-bash} 
 
 ### MacOS
+You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropria>
+  ~~~
+  $ ssh USER@percheron.ceu.hu -p PORT
+  $ ssh USER@pure.percheron.ceu.hu -p PORT
+  ~~~
+  {: .language-bash} 
 
-ssh YOURNAME@percheron.ceu.hu -p YOURSSHNUMBER
-
-ssh YOURNAME@pure.percheron.ceu.hu -p YOURSSHNUMBER
-
-For the graphical server a useful tool is XQuartz.
+For the graphical server a useful tool is XQuartz. Using XQuartz you can enable X11 forwarding from the graphical server. In an XQuartz terminal you can connect to the graphical server by issuing the following command:
+You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropria>
+  ~~~
+  $ ssh USER@percheron.ceu.hu -p PORT -y
+  ~~~
+  {: .language-bash} 
 
 ### Windows
 
-With Guided User Interface (GUI https://en.wikipedia.org/wiki/Graphical_user_interface) on Windows download https://www.turbovnc.org/
-
-After installation you have to use this: 
-VNC server: percheron.ceu.hu:YOURVNCNUMBER
-pass: YOURPASS
+PuTTy provides a CLI for both servers. For GUI on Windows download [TurboVNC](https://www.turbovnc.org/). After installation you have to use the following server address along with your server username and password: 
+`percheron.ceu.hu:VNCPORT`
 
 ### Private and public keys for easier connection
 
@@ -71,10 +77,16 @@ You can create an alias to your sandbox
 
 To move data between your computer and the server, you need an SFTP or SCP client.
 You have access to your home folder, and you may access shared data and project folders.
+You can choose from a wide variety of SFTP clients. A few of these are the following:
 
 - Filezilla - <https://filezilla-project.org/>
 - On Windows you can use WinScp - <https://winscp.net/eng/index.php>
 
+To access the files on the server, provide the following sftp address to your client along with your username, password, and appropriate port number:
+
+`sftp://percheron.ceu.hu`
+
+It is worth noting that on Ubuntu systems you don't need any additional client for file transfer. Just open a file navigator, go to Other locations, and connect to the server by issuing it's sftp address. You will automatically be prompted for your username and password, and you can navigate on the server just like on your own computer.
 ### Screen
 
 Working in screen allows users to exit the servers without terminating the running processes.
@@ -114,6 +126,6 @@ python2 or python3
 
 ## Contacts
 
-- If you have technical difficulties with the server, please contact Daniel Biro (daniel.biro@webgalaxy.hu).
+- If you have technical difficulties with the server, please contact a Project Manager.
 - For VPN-related problems, please contact CEU HelpDesk at helprequest@ceu.hu.
-- If you have a problem with a specific application (e.g., Stata, Matlab), Daniel can help you decide whether the problem is with the operating system or with the application. In the latter case, he can put you in touch with Stata or Matlab support.
+- If you have a problem with a specific application (e.g., Stata, Matlab), a Project Manager can help you decide whether the problem is with the operating system or with the application. In the latter case, he can put you in touch with Stata or Matlab support.
