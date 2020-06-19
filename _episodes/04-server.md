@@ -71,16 +71,16 @@ For easier server access you can create private/public key pairs as follows:
 
 1. Start the key generation program by typing `ssh-keygen` on your local computer
 
-2, Enter the path to the file where it is going to be located.
-Make sure you locate it in your .ssh folder and name it as `microdata_kulcs` (or any alternative filename).
+2. Enter the path to the file where it is going to be located.
+Make sure you locate it in your `.ssh` folder and name it as `microdata_kulcs` (or any alternative filename).
 
-4, Enter a Passphrase or just simply press Enter.
-The public and private keys are created automatically. The public key ends with the string .pub.
+3. Enter a Passphrase or just simply press Enter.
+The public and private keys are created automatically. The public key ends with the string `.pub`.
 
-5, Copy the public key to the $HOME/USER/.ssh folder on the server. 
+4. Copy the public key to the `$HOME/USER/.ssh` folder on the server. 
 (substitute your username appropriately)
 
-Finally, you can alias the command that connects you to server.
+Finally, you can alias the command that connects you to server:
 
 #### MacOS
 
@@ -88,17 +88,31 @@ Copy the following text into the `config` file which is located in your .ssh fol
 (substitute your usernames and port number appropriately)
 
 > Host pure
+
 >         HostName pure.percheron.ceu.hu
+
 >         User USER
+
 >         Port PORT
+
 >         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
+
+
 > Host percheron
+
 >         HostName percheron.ceu.hu
+
 >         User USER
+
 >         Port PORT
+
 >         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
 
 This allows you to connect to the percheron1 and percheron2 servers by typing the `ssh pure` and `ssh percheron` commands respectively.
+
+#### Linux
+
+#### Windows
 
 ## Structure of the server and general workflow
 
@@ -106,9 +120,9 @@ The main Beadbox location is `/srv/dropbox_encrypted/bead-box/`.
 Most of the time, however, you work in your sandbox.
 
 You can create aliases that simplifies your access to you sandbox and beadbox.
-For that, you need to add the following commands to your `.bashrc` file.
+For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
+
 The `.bashrc` is located in your home folder (`home/USER`).
-(substitute your username appropriately)
 
 `alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'`
 `alias bead='/srv/dropbox_encrypted/bead-box/bead'`
