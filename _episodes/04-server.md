@@ -44,15 +44,17 @@ You can connect to the servers from a Terminal window using either of the follow
   {: .language-bash} 
 
 ### MacOS
-You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropria>
+You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropriately)
   ~~~
   $ ssh USER@percheron.ceu.hu -p PORT
   $ ssh USER@pure.percheron.ceu.hu -p PORT
   ~~~
   {: .language-bash} 
 
-For the graphical server a useful tool is XQuartz. Using XQuartz you can enable X11 forwarding from the graphical server. In an XQuartz terminal you can connect to the graphical server by issuing the following command:
-You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropria>
+For the graphical server a useful tool is XQuartz.
+Using XQuartz you can enable X11 forwarding from the graphical server.
+In an XQuartz terminal you can connect to the graphical server by issuing the following command:
+(substitute your username and port number appropriately)
   ~~~
   $ ssh USER@percheron.ceu.hu -p PORT -y
   ~~~
@@ -65,11 +67,53 @@ PuTTy provides a CLI for both servers. For GUI on Windows download [TurboVNC](ht
 
 ### Private and public keys for easier connection
 
+For easier server access you can create private/public key pairs as follows:
+
+1. Start the key generation program by typing `ssh-keygen` on your local computer
+
+2, Enter the path to the file where it is going to be located.
+Make sure you locate it in your .ssh folder and name it as `microdata_kulcs` (or any alternative filename).
+
+4, Enter a Passphrase or just simply press Enter.
+The public and private keys are created automatically. The public key ends with the string .pub.
+
+5, Copy the public key to the $HOME/USER/.ssh folder on the server. 
+(substitute your username appropriately)
+
+Finally, you can alias the command that connects you to server.
+
+#### MacOS
+
+Copy the following text into the `config` file which is located in your .ssh folder:
+(substitute your usernames and port number appropriately)
+
+> Host pure
+>         HostName pure.percheron.ceu.hu
+>         User USER
+>         Port PORT
+>         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
+> Host percheron
+>         HostName percheron.ceu.hu
+>         User USER
+>         Port PORT
+>         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
+
+This allows you to connect to the percheron1 and percheron2 servers by typing the `ssh pure` and `ssh percheron` commands respectively.
+
 ## Structure of the server and general workflow
 
 The main Beadbox location is `/srv/dropbox_encrypted/bead-box/`.
 Most of the time, however, you work in your sandbox.
-You can create an alias to your sandbox
+
+You can create aliases that simplifies your access to you sandbox and beadbox.
+For that, you need to add the following commands to your `.bashrc` file.
+The `.bashrc` is located in your home folder (`home/USER`).
+(substitute your username appropriately)
+
+`alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'`
+`alias bead='/srv/dropbox_encrypted/bead-box/bead'`
+
+Using these aliases you can access your sandbox and beadbox by typing simply `sandbox` and `beadbox`, respectively, to the command line.
 
 ## Useful server tools
 
@@ -123,6 +167,7 @@ python2 or python3
 | `pip3 install -r requirements_packages.txt -f packages/` |Install every requirement that are contained in a folder (as files) |
 | `pip freeze` |Show downloaded python libraries |
 | `pip freeze -> requirements.txt` |List the currently downloaded python packages |
+| `exit` |Terminate connection with the server |
 
 ## Contacts
 
