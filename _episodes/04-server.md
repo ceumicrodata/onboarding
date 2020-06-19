@@ -87,18 +87,19 @@ Finally, you can alias the command that connects you to server:
 Copy the following text into the `config` file which is located in your .ssh folder:
 (substitute your usernames and port number appropriately)
 
-> Host pure \
->         HostName pure.percheron.ceu.hu \
->         User USER \
->         Port PORT \
->         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs \
+```
+Host pure
+        HostName pure.percheron.ceu.hu
+        User USER
+        Port PORT
+        IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
 
-
-> Host percheron
->         HostName percheron.ceu.hu \
->         User USER \
->         Port PORT \
->         IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs \
+Host percheron
+        HostName percheron.ceu.hu
+        User USER
+        Port PORT
+        IdentityFile /Users/LOCAL_USER/.ssh/microdata_kulcs
+```
 
 This allows you to connect to the percheron1 and percheron2 servers by typing the `ssh pure` and `ssh percheron` commands respectively.
 
