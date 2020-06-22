@@ -114,11 +114,10 @@ Most of the time, however, you work in your sandbox.
 
 You can create aliases that simplifies your access to you sandbox and beadbox.
 For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
-
-The `.bashrc` is located in your home folder (`home/USER`).
-
 `alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'`
 `alias bead='/srv/dropbox_encrypted/bead-box/bead'`
+
+The `.bashrc` is located in your home folder (`home/USER`).
 
 Using these aliases you can access your sandbox and beadbox by typing simply `sandbox` and `beadbox`, respectively, to the command line.
 
@@ -141,24 +140,50 @@ It is worth noting that on Ubuntu systems you don't need any additional client f
 ### Screen
 
 Working in screen allows users to exit the servers without terminating the running processes.
+Therefore, you should always work in screen when running complex programs that run for longer time.
+For instructions on how to open and close a screen window, see the 'Useful server commands' section below.
 
 ### Virtual environment
 
 When your code requires specific python packages, you should download them to a virtual environment.
+The Python environment on the server incorporates only the most basic Python packages so it is always recommended to work in a virtual environment.
+For instructions on how to create and activate a virtual environment, see the 'Useful server commands' section below.
+
+If your program runs from a `main.sh` file, you can easily automate the creation of the virtual environment by inserting the following script to your code.
+Substitute the name of the virtual environment and local package folder (if applicable) appropriately.
+
+```
+virtualenv 'NAME_OF_THE_ENV'
+. 'NAME_OF_THE_ENV'/bin/activate
+pip install -r requirements.txt
+pip install -f 'LOCAL_PACKAGE_FOLDER'/ -r requirements-local.txt
+
+YOUR_CODE
+
+deactivate
+```
 
 ### Parallelization
 
 Parallelization refers to the spreading the code processing work across multiple cores (CPUs).
 Parallelization is useful to fasten the running time of codes by optimizing the available resources.
 
+For a short introduction on parallelization in Python, please visit the following website:
+https://sebastianraschka.com/Articles/2014_multiprocessing.html
+
 ### STATA
 
+You can access the STATA program on both servers, however, only the Percheron server has graphical user interface.
+The stata is located in the folders:
+
 Pure: /usr/local/stata15/stata-mp
-GUI: /usr/local/stata15/xstata-mp
+Percheron(GUI): /usr/local/stata15/xstata-mp
 
 ### Python
 
-python2 or python3
+The servers run both python2 or python3.
+You can access them by typing `python` for python2 (current version 2.7.15) and `python3` for python3 (current version 3.6.5).
+To leave the python shell and return to the system shell, type the python command `exit()`.
 
 ## Useful server commands:
 
@@ -170,7 +195,7 @@ python2 or python3
 | `virtualenv “name_of_virtualenv” -p python3` |Create a Python3 virtual environment |
 | `virtualenv “name_of_virtualenv”` |Create a Python2 virtual environment |
 | `. [‘name_of_virtualenv’]/bin/activate` |Activate virtual environment |
-| `pip3 install -r requirements.txt` |Install requirements for virtual environment in requirements.txt |
+| `pip3 install -r requirements.txt` |Install requirements for virtual environment listed in requirements.txt |
 | `pip3 install -r requirements_packages.txt -f packages/` |Install every requirement that are contained in a folder (as files) |
 | `pip freeze` |Show downloaded python libraries |
 | `pip freeze -> requirements.txt` |List the currently downloaded python packages |
