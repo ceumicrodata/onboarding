@@ -113,22 +113,25 @@ When connecting to the server, you are directed to your home folder `/home/USER_
 Only you have access to your home folder and you can use it for developing your own projects.
 
 For Microdata project work, however, you should be working in your sandbox located at `/srv/dropbox_encrypted/USER_NAME_sandbox`.
-Working in your sandbox allows other to check your work and develop projects collaboratively.
+Working in your sandbox allows others to check your work and develop projects collaboratively.
 
-When you save your bead, a copy of your work is created in .zip format in the beadbox.
+When saving your bead, a copy of your work is created in .zip format in the beadbox.
 The beadbox is located at `/srv/dropbox_encrypted/bead-box/`.
 For more information on the use of bead, please visit the corresponding episode on this website.
 
 Finally, you may want to access files that were created before the bead system was developed.
-These folders and files can be found in the `/srv/dropbox` folder.
+These folders and files can be found at `/srv/dropbox`.
 We no longer use this path for project development.
 
 ### Creating alias to your sandbox and the beadbox
 
 You can create aliases that simplifies your access to you sandbox and beadbox.
 For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
-`alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'`
-`alias bead='/srv/dropbox_encrypted/bead-box/bead'`
+
+```
+alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'
+alias bead='/srv/dropbox_encrypted/bead-box/bead'
+```
 
 The `.bashrc` is located in your home folder (`home/USER`).
 
@@ -191,7 +194,7 @@ The stata is located in the folders:
 
 Pure: /usr/local/stata15/stata-mp
 
-Percheron(GUI): /usr/local/stata15/xstata-mp
+Percheron (GUI): /usr/local/stata15/xstata-mp
 
 ### Python
 
