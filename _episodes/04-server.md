@@ -123,7 +123,7 @@ Finally, you may want to access files that were created before the bead system w
 These folders and files can be found at `/srv/dropbox`.
 We no longer use this path for project development.
 
-### Creating alias to your sandbox and the beadbox
+### Creating alias to your sandbox
 
 You can create aliases that simplifies your access to you sandbox.
 For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
