@@ -109,8 +109,21 @@ This allows you to connect to the percheron1 and percheron2 servers by typing th
 
 ## Structure of the server and general workflow
 
-The main Beadbox location is `/srv/dropbox_encrypted/bead-box/`.
-Most of the time, however, you work in your sandbox.
+When connecting to the server, you are directed to your home folder `/home/USER_NAME'.
+Only you have access to your home folder and you can use it for developing your own projects.
+
+For Microdata project work, however, you should be working in your sandbox located at `/srv/dropbox_encrypted/USER_NAME_sandbox`.
+Working in your sandbox allows other to check your work and develop projects collaboratively.
+
+When you save your bead, a copy of your work is created in .zip format in the beadbox.
+The beadbox is located at `/srv/dropbox_encrypted/bead-box/`.
+For more information on the use of bead, please visit the corresponding episode on this website.
+
+Finally, you may want to access files that were created before the bead system was developed.
+These folders and files can be found in the `/srv/dropbox` folder.
+We no longer use this path for project development.
+
+### Creating alias to your sandbox and the beadbox
 
 You can create aliases that simplifies your access to you sandbox and beadbox.
 For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
@@ -177,6 +190,7 @@ You can access the STATA program on both servers, however, only the Percheron se
 The stata is located in the folders:
 
 Pure: /usr/local/stata15/stata-mp
+
 Percheron(GUI): /usr/local/stata15/xstata-mp
 
 ### Python
