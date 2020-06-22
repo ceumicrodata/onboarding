@@ -125,17 +125,16 @@ We no longer use this path for project development.
 
 ### Creating alias to your sandbox and the beadbox
 
-You can create aliases that simplifies your access to you sandbox and beadbox.
+You can create aliases that simplifies your access to you sandbox.
 For that, you need to add the following commands to your `.bashrc` file: (substitute your username appropriately)
 
 ```
 alias sandbox='cd /srv/dropbox_encrypted/USER_sandbox'
-alias bead='/srv/dropbox_encrypted/bead-box/bead'
 ```
 
 The `.bashrc` is located in your home folder (`home/USER`).
 
-Using these aliases you can access your sandbox and beadbox by typing simply `sandbox` and `beadbox`, respectively, to the command line.
+Then, you can access your sandbox by typing `sandbox` to the command line.
 
 ## Useful server tools
 
