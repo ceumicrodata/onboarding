@@ -62,7 +62,7 @@ In an XQuartz terminal you can connect to the graphical server by issuing the fo
 
 ### Windows
 
-PuTTy provides a CLI for both servers. For GUI on Windows download [TurboVNC](https://www.turbovnc.org/). After installation you have to use the following server address along with your server username and password: 
+PuTTy provides a CLI for both servers. For GUI on Windows download [TurboVNC](https://www.turbovnc.org/). After installation you have to use the following server address along with your server password: 
 `percheron.ceu.hu:VNCPORT`
 
 ### Private and public keys for easier connection
@@ -105,6 +105,14 @@ This allows you to connect to the percheron1 and percheron2 servers by typing th
 
 #### Linux
 
+Add the following lines to your `.bashrc` file located in your home folder:
+
+```
+alias pure='ssh USER@pure.percheron.ceu.hu -p PORT'
+alias percheron='ssh -X USER@percheron.ceu.hu -p PORT'
+```
+
+This allows you to connect to the percheron1 and percheron2 servers by typing the `pure` and the `percheron` commands respectively.
 #### Windows
 
 ## Structure of the server and general workflow
