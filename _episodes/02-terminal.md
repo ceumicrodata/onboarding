@@ -164,8 +164,11 @@ You can find the most commonly used commands with a short description below by c
 
 - `mv` moves a file or folder. It has two positional arguments, the source and the target path. 
   ~~~
-  #Move the directory "my-folder" and its content to the parent directory
+  #Move a file to the parent directory
   $ mv my-file.txt ../
+
+  #Move the directory "my-folder" and its content to the parent directory
+  $ mv my-folder ../
   ~~~
   {: .language-bash}
 
