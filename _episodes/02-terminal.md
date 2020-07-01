@@ -86,7 +86,7 @@ You can find the most commonly used commands with a short description below by c
   $ cd ..
 
   #going to the Desktop directory in the home directory
-  $ cd ~/Dekstop
+  $ cd ~/Desktop
   ~~~
   {: .language-bash}
 
@@ -111,7 +111,7 @@ You can find the most commonly used commands with a short description below by c
   ~~~
   {: .language-bash}
 
-## File System Exploaration
+## File System Exploration
 - `ls` lists the content of the current working directory. It has a wide set of optional arguments that you can combine to get a listing you prefer. A few of these are:
   - `-l` will give you the list of files with one file in one line, and it will include additional information on file permissions, file owners, file size and modification date.
   - `-a` will list all files and folders including hidden ones.
