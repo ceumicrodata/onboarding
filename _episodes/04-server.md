@@ -80,6 +80,9 @@ The public and private keys are created automatically. The public key ends with 
 4. Copy the public key to the `$HOME/USER/.ssh` folder on the server. 
 (substitute your username appropriately)
 
+4b. An alternative solution for point 4 is using the following code: ssh-copy-id -i ~/.ssh/id_rsa USER@pure.percheron.ceu.hu -p PORT
+(a useful [source](https://www.ssh.com/ssh/keygen/) for the whole process)
+
 Finally, you can alias the command that connects you to server:
 
 #### MacOS
