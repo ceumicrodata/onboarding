@@ -246,7 +246,7 @@ You can find the most commonly used commands with a short description below by c
 
   You are going to learn about `cat` command in the next section. 
 
-## Redirection
+## Redirection and some other useful commands
 - `cat` will print the content of files on your terminal screen. It's positional argument is a file list separated by spaces. 
   ~~~
   $ cat my-code.py
@@ -285,6 +285,12 @@ If you specify multiple files, it will con`cat`enate (its name comes from here),
   - `uniq` will report or omit repeated lines.
 
   - `wc` will print newline, word, and byte counts for each file. `wc -l` only counts the number of the lines.
+
+  - `cut` will print selected parts of lines from each file to standard output.
+
+  - `history` will display previous commands typed in the command line.
+
+  - `nano` will open the Nano text editor.
 
   - `grep` will print lines matching a pattern.  
 
