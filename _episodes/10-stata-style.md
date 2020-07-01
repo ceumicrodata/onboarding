@@ -22,7 +22,7 @@ keypoints:
 {: .callout}
 
 > ## Put file paths in quotes
-> Write `save "data/worker.dta"` and `do "regression.do"`, not ~~`save data/worker.dta`~~ or ~~`do regression`~~. Both are correct, but the second is more readable, as most editors readily highlight strings as separate from programming statements.
+> Write `save "data/worker.dta"` and `do "regression.do"`, not ~~`save data/worker.dta`~~ or ~~`do regression`~~. Both are correct, but the first is more readable, as most editors readily highlight strings as separate from programming statements.
 {: .callout}
 
 > ## Use relative path whenever possible
