@@ -162,7 +162,7 @@ To access the files on the server, provide the following sftp address to your cl
 
 `sftp://percheron.ceu.hu`
 
-It is worth noting that on Ubuntu systems you don't need any additional client for file transfer. Just open a file navigator, go to Other locations, and connect to the server by issuing it's sftp address. You will automatically be prompted for your username and password, and you can navigate on the server just like on your own computer.
+It is worth noting that on Ubuntu systems you don't need any additional client for file transfer. Just open a file navigator, go to Other locations, and connect to the server by issuing it's sftp address - e.g. `sftp://USER@percheron.ceu.hu:PORT`. You will automatically be prompted for your username and password, and you can navigate on the server just like on your own computer.
 ### Screen
 
 Working in screen allows users to exit the servers without terminating the running processes.
