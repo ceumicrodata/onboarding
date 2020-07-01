@@ -189,6 +189,18 @@ YOUR_CODE
 deactivate
 ```
 
+To create a virtualenv and use it permanently, one can use [mkvirtualenv](https://virtualenvwrapper.readthedocs.io/en/latest/):
+
+```
+$ mkvirtualenv pandas
+(pandas) $ pip install pandas
+(pandas) $ python
+(pandas) $ deactivate
+$ echo "I am no longer in a virtualenv."
+$ workon pandas
+(pandas) $ pip install jupyter
+```
+
 ### Parallelization
 
 Parallelization refers to the spreading the code processing work across multiple cores (CPUs).
