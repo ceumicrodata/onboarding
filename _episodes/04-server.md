@@ -31,14 +31,14 @@ For more information on VPN usage please visit <http://www.it.ceu.edu/vpn> and <
 You can access the shell (command line) on both percheron.ceu.hu and pure.percheron.ceu.hu by using a Secure Shell (ssh) client, such as Putty (http://docs.microdata.io/putty). On UNIX-like systems the built-in ssh package allows you to connect without any additional software.
 This is where you can change your password, or where you can start batch jobs from the shell.
 
-You can connect to the graphical interface (windows-like) on percheron.ceu.hu via a VNC client. On UNIX-like systems using X-server (e.g. Ubuntu) you can simply allow X11 forwarding in an ssh connection by using the `-x` optional argument and don't need a VNC client.
+You can connect to the graphical interface (windows-like) on percheron.ceu.hu via a VNC client. On UNIX-like systems using X-server (e.g. Ubuntu) you can simply allow X11 forwarding in an ssh connection by using the `-X` optional argument and don't need a VNC client.
 pure.percheron.ceu.hu does not have a graphical interface.
 
 
 ### Linux
 You can connect to the servers from a Terminal window using either of the following commands (substitute your username and port number appropriately):
   ~~~
-  $ ssh USER@percheron.ceu.hu -p PORT -x
+  $ ssh USER@percheron.ceu.hu -p PORT -X
   $ ssh USER@pure.percheron.ceu.hu -p PORT
   ~~~
   {: .language-bash} 
