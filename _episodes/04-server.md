@@ -105,7 +105,7 @@ This allows you to connect to the percheron1 and percheron2 servers by typing th
 
 #### Linux
 
-Add the following lines to your `.bashrc` file located in your home folder:
+Add the following lines to your `.bashrc` file located in your home folder (by typing `nano .bashrc`):
 
 ```
 alias pure='ssh USER@pure.percheron.ceu.hu -p PORT'
