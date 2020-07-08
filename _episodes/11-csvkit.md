@@ -7,9 +7,9 @@ questions:
 - How to select certain rows and columns of the data? How to append them after filtering?
 - How to sort and describe basic characteristics of the data?
 objectives:
-- Learn how to install csvkit and how to use `csvlook`
-- Learn `csvgrep`, `csvcut` and `csvstack` commands
-- Learn `csvsort` and `csvstat` commands
+- Learn how to install csvkit and how to use csvlook
+- Learn csvgrep, csvcut and csvstack commands
+- Learn csvsort and csvstat commands
 ---
 
 {% include links.md %}
@@ -212,7 +212,7 @@ $ sed 's/;/,/g' cars.csv | sed 2,2d > cars-tutorial.csv
   ~~~
   {. output}
 
-  Both files have 407 rows as expected.
+  Both files have 407 rows as expected (406 plus the header).
 
 ## Useful resources for learning csvkit:
 - The csvkit tutorial and documentation: <https://csvkit.readthedocs.io/en/1.0.5/tutorial.html />
