@@ -7,8 +7,8 @@ questions:
 - "What is an LTS dataset?"
 - "Where do I find the datasets on the server?"
 objectives:
-- "Know the primary and foreign keys"
-- "Getting to know major databases"
+- "Understand the difference between primary and foreign keys"
+- "Get to know major databases"
 keypoints:
 - ""
 ---
