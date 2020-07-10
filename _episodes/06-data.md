@@ -27,7 +27,7 @@ The cegjegyzek updates are arriving every year at May and contains information t
 
 The long-term support database idea comes from software development. 
 
-https://en.wikipedia.org/wiki/Long-term_support
+<https://en.wikipedia.org/wiki/Long-term_support>
 
 Our LTS products will be upgrading every year at a given date. 
 The users can count with the new versions and have enough time to prepare their scripts on them. 
@@ -35,7 +35,7 @@ The users can count with the new versions and have enough time to prepare their 
 Every time when we make a new LTS there is a possibility to add new feature request. 
 Before every version update the team talk trough which feature requests will be in each releases. 
 
-https://docs.google.com/document/d/16wEJFy-XFKkRMMKUDPx3gia73hs8odiOf-Ov1Ytj6QY/edit#heading=h.718700q5qmgh
+<https://docs.google.com/document/d/16wEJFy-XFKkRMMKUDPx3gia73hs8odiOf-Ov1Ytj6QY/edit#heading=h.718700q5qmgh>
 
 # Primary keys
 
@@ -43,7 +43,7 @@ The `Primary key` constraint uniquely identifies each record in a table.
 Primary keys must contain UNIQUE values, and cannot contain NULL values.
 A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).
 
-https://www.w3schools.com/sql/sql_primarykey.asp
+<https://www.w3schools.com/sql/sql_primarykey.asp>
 
 ## Frame_id 
 
@@ -60,14 +60,14 @@ From the full length 11 character long tax_id we use the `prime number` the firs
 
 More information about the Hungarian tax ids: 
 
-https://hu.wikipedia.org/wiki/Ad%C3%B3sz%C3%A1m
+<https://hu.wikipedia.org/wiki/Ad%C3%B3sz%C3%A1m>
 
 The variable called `originalid` in merleg database is basically a tax id where we use a fictive negative number if we have a missing tax_id. 
 In the merleg database we drop the tax_ids starts with 15,16,19 or if they bigger than 3000001. 
 
 More about Hungarian tax_id character meanings: 
 
-https://drive.google.com/file/d/1mxWv2Pz2bES-5dDo-FUWj83wYJImvOCR/view?usp=sharing
+<https://drive.google.com/file/d/1mxWv2Pz2bES-5dDo-FUWj83wYJImvOCR/view?usp=sharing>
 
 # Detailed meta information about the main datasets
 
