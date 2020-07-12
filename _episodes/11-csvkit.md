@@ -165,7 +165,7 @@ The example dataset is semi-colon and not comma separated. For all the commands 
   ~~~ 
   {: .bash}
 
-  The output shows the five most fuel efficient cars. Mazda GLC, the most fuel efficient one has indeed a 46.6 miles per gallon consumption.
+  The output shows the four most fuel efficient cars. Mazda GLC, the most fuel efficient one has indeed a 46.6 miles per gallon consumption.
 
   ~~~
   | Car                          |  MPG |
