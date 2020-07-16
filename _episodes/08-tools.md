@@ -89,7 +89,53 @@ Can be said generally that most of the possible matches will be in `org_score==2
 If a data is not very dirty usually matches bigger than `0.8` org_score could be possible good ones. 
 You must have to adjust the good match cut offs in every category, every time when you run the tool on a new input. 
 
+# PIR name search tool
 
+Pir name search tool is developed for identify Hungarian state organizations by name. 
+Pir number is the registration number of budgetary institutions in the Financial Information System at Hungarian State Treasury.
 
- 
+There is an online platform to find the PIR numbers one by one. 
 
+http://www.allamkincstar.gov.hu/hu/ext/torzskonyv
+
+The PIR search command line tool requires Python 3.6+.
+Input: utf-8 encoded CSV file
+Output: utf-8 encoded CSV file, same fields as in input with additional fields for "official data"
+
+https://github.com/ceumicrodata/pir_search/releases/tag/v0.8.0
+
+This release is the first, that requires an external index file to work with. You can find this index.json file in the pir-index beads.
+The index file was separated, because it enables match quality to improve without new releases.
+
+The match precision can be greatly improved by providing optional extra information besides organization name:
+
+- settlement
+- date
+
+An extra tuning parameter is introduced with --idf-shift which tweaks the matcher's sensitivity to rare trigrams.
+Its default value might not be optimal, it changes match quality.
+Attached files are binary releases for all 3 major platforms: pir_search.cmd is for Windows, pir_search (without extension) is for unix-like systems (e.g. Linux and Mac)
+
+## An example how to run pir name search tool in python3
+
+```
+Run from python3 with settlement option
+
+python3 pir_search-0.8.0 input/pir-index/index.json name temp/distinct_firms.csv temp/distinct_firms_pname.csv --settlement settlement --hun-stop-words \
+--pir pir_d --score pir_score_d --match_error pir_err_d --taxid pir_taxid_d --pir-settlement pir_settlement_d \
+--name pir_name_d --keep-ambiguous
+
+Run from python3 with settlement option and idf-shift 100 and extramatches
+
+python3 pir_search-0.8.0 input/pir-index/index.json name temp/distinct_firms.csv temp/distinct_firms_pname_extra.csv--settlement settlement --hun-stop-words \
+--idf-shift 100 --extramatches
+```
+{: .bash}
+
+Pir_score==1 and pir_err==0 is a perfect match. 
+The pir_score output could be between 0 <= x < 1.
+
+The bigger the pir_err the match is more likely wrong. 
+`Pir score bigger than 0.8 and pir_err<0.8 are potentially good matches`. 
+
+You must have to adjust the good match cut offs in every category, every time when you run the tool on a new input. 
