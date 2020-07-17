@@ -96,13 +96,13 @@ Pir number is the registration number of budgetary institutions in the Financial
 
 There is an online platform to find the PIR numbers one by one. 
 
-http://www.allamkincstar.gov.hu/hu/ext/torzskonyv
+<http://www.allamkincstar.gov.hu/hu/ext/torzskonyv>
 
 The PIR search command line tool requires Python 3.6+.
 Input: utf-8 encoded CSV file
 Output: utf-8 encoded CSV file, same fields as in input with additional fields for "official data"
 
-https://github.com/ceumicrodata/pir_search/releases/tag/v0.8.0
+<https://github.com/ceumicrodata/pir_search/releases/tag/v0.8.0>
 
 This release is the first, that requires an external index file to work with. You can find this index.json file in the pir-index beads.
 The index file was separated, because it enables match quality to improve without new releases.
@@ -146,12 +146,12 @@ The Complexweb is and internal searchable version of the raw Complex Registry Co
 
 You can find downloadable official balance and income statements from e-beszámolo.hu:
 
-https://e-beszamolo.im.gov.hu/oldal/kezdolap
+<https://e-beszamolo.im.gov.hu/oldal/kezdolap>
 
 You can easily find firm is you change the tax_id or ceg_id in the html column.
 
 ```
-Example pages by tax_id
+Example pages with fictive tax_id
 
 http://complexweb.microdata.servers.ceu.hu/cegs_by_tax_id/12345678 to 
 http://complexweb.microdata.servers.ceu.hu/cegs_by_tax_id/12345679
@@ -203,7 +203,6 @@ where
  AND rovat_8.alrovat_id = 1
  AND left(coalesce(rovat_8.datum, ''), 4) = '2006'
  AND rovat_99018.tkod08 like '77%%'
-
 
 * Select rovats and join by ceg_id by the help of with
 
