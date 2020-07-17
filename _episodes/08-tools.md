@@ -29,7 +29,7 @@ You can find, among others, the building and installing methods on github:
 
 <https://github.com/ceumicrodata/firm_name_search>
 
-## Use
+## Use of the tool
 
 Requirements:
 - Python2 and the tool must be available on the PATH
@@ -139,3 +139,82 @@ The bigger the pir_err the match is more likely wrong.
 `Pir score bigger than 0.8 and pir_err<0.8 are potentially good matches`. 
 
 You must have to adjust the good match cut offs in every category, every time when you run the tool on a new input. 
+
+# Complexweb
+
+The Complexweb is and internal searchable version of the raw Complex Registry Court database.
+
+You can find downloadable official balance and income statements from e-beszámolo.hu:
+
+https://e-beszamolo.im.gov.hu/oldal/kezdolap
+
+You can easily find firm is you change the tax_id or ceg_id in the html column.
+
+```
+Example pages by tax_id
+
+http://complexweb.microdata.servers.ceu.hu/cegs_by_tax_id/12345678 to 
+http://complexweb.microdata.servers.ceu.hu/cegs_by_tax_id/12345679
+
+Example pages by ceg_id
+
+http://complexweb.microdata.servers.ceu.hu/ceg/0101234567 to
+http://complexweb.microdata.servers.ceu.hu/ceg/0101234568
+```
+{: .bash}
+
+You can write Postgre SQL queries to join tables and search in Complexweb.
+
+<https://www.postgresql.org/docs/13/index.html>
+
+```
+Examples
+
+* Count not null ceg_id from rovat 109 which is KFT
+
+select count(distinct(ceg_id)) from rovat_109-- where cgjsz is not null
+
+* Select a string part from a rovat 
+
+select * from rovat_99 where szoveg like '%%Összeolvadás%%'
+select ceg_id from rovat_3 where nev like '%%nyrt%%' or nev like '%%NYRT%%' or nev like '%%Nyrt%%'
+
+* Select a string part from a rovat order and limit
+
+select ceg_id from rovat_99 where szoveg like '%%átalakulás%%' and szoveg not like '%%való átalakulását határozta el%%' order by random() limit 20
+
+* Select different variables from different rovats with join. 
+where a tax_id is xxx 
+AND létszám is xxx or datum is somethin 
+-- means that line is not executing
+
+-- explain
+SELECT ceg_id, letsz, rovat_0.adosz, nev, datum, tkod08 -- * 
+FROM
+  rovat_0
+  join rovat_99003 using (ceg_id)
+  join rovat_99018 using (ceg_id)
+  join rovat_8     using (ceg_id)
+where 
+--   rovat_0.adosz like '11502583%%'
+--   rovat_0.adosz like '1150%%'
+--   rovat_99003.letsz ~ '^(1[1-5]|23)$' 
+     rovat_99003.letsz ~ '^13..$'
+ AND rovat_8.alrovat_id = 1
+ AND left(coalesce(rovat_8.datum, ''), 4) = '2006'
+ AND rovat_99018.tkod08 like '77%%'
+
+
+* Select rovats and join by ceg_id by the help of with
+
+-- explain
+with
+    all_firms as (select left(adosz, 8) taxid8, ceg_id from rovat_0),
+    more_than_one_ceg as (select taxid8 from all_firms group by taxid8 having count(*) > 1),
+    ignored_taxid8 as (select distinct taxid8 from more_than_one_ceg join all_firms using (taxid8) join rovat_93 using (ceg_id)),
+    hirdetmeny as (select distinct taxid8 from more_than_one_ceg join all_firms using (taxid8) join rovat_99 using (ceg_id))
+ 
+(select taxid8 from more_than_one_ceg) intersect (select taxid8 from hirdetmeny) except (select taxid8 from ignored_taxid8 ) 
+limit 10
+;
+```
