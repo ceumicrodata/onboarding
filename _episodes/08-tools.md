@@ -12,7 +12,6 @@ objectives:
 keypoints:
 - ""
 ---
-FIXME
 
 {% include links.md %}
 
@@ -228,7 +227,7 @@ A tool for collapsing start and end dates and imputing missing dates.
 
 <https://github.com/ceumicrodata/time-machine>
 
-## We are suggesting to make a new environment for these kind of tools to run properly. 
+## Make a new environment to run the tool
 
 ```
 virtualenv -p python3 env
@@ -252,7 +251,7 @@ You need these .py files to your code folder to run the tool:
 
 Usage: timemachine.py [-h] [-s START] [-e END] [-u] entity_resolved rovat_8 deaths order unique_id is_sorted fp out_path
 
-Optional arguments:
+## Optional arguments:
 
 - -h: Shows a help message and exits.
 
@@ -262,7 +261,7 @@ Optional arguments:
 
 - -u: Unique flag. Should be used if only a single entry is valid at any given time.
 
-Positional arguments:
+## Positional arguments:
 
 - entity_resolved: The path to the entity resolved input csv file.
 
