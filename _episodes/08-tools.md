@@ -3,12 +3,14 @@ title: "Tools in MicroData"
 teaching: 0
 exercises: 0
 questions:
-- ""
+- "What is a tool and why we use them?"
+- "How to read and understand a tool help and output?
 objectives:
 - "Join a unique ID to a raw .csv with different input types."
 - "Choose the right cut offs and good matches"
+- "Get to know how to run a tool on the server"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- ""
 ---
 FIXME
 
@@ -59,7 +61,7 @@ $ python name-to-taxids-20161004 name temp/distinct_firms.csv temp/distinct_firm
 ```
 {: .bash}
 
-You can see that you have to add the whitelist path manually. 
+You can see that you must add the whitelist path manually. 
 
 ## The meaning of the outcome and how to choose the proper cut off scores
 
@@ -143,12 +145,14 @@ You must have to adjust the good match cut offs in every category, every time wh
 # Complexweb
 
 The Complexweb is and internal searchable version of the raw Complex Registry Court database.
+A code is required to log in. 
 
+## TIP:
 You can find downloadable official balance and income statements from e-beszámolo.hu:
 
 <https://e-beszamolo.im.gov.hu/oldal/kezdolap>
 
-You can easily find firm is you change the tax_id or ceg_id in the html column.
+You can easily find the firm you search fot if you change the tax_id or the ceg_id in the html column.
 
 ```
 Example pages with fictive tax_id
@@ -217,3 +221,74 @@ with
 limit 10
 ;
 ```
+
+# Time machine tool
+
+A tool for collapsing start and end dates and imputing missing dates.
+
+<https://github.com/ceumicrodata/time-machine>
+
+## We are suggesting to make a new environment for these kind of tools to run properly. 
+
+```
+virtualenv -p python3 env
+. env/bin/activate
+```
+
+## Required files: 
+
+You need these .py files to your code folder to run the tool: 
+- timemachine.py 
+- timemachine_mp.py 
+- timemachine_tools.py 
+
+## Required inputs:
+
+- An entity resolved csv file. Example: complex rovat csv files with person IDs.
+
+- Rovat 8 csv file, which contains the birth dates of firms.
+
+- Frame, which contains the death date of firms in the death_date column.
+
+Usage: timemachine.py [-h] [-s START] [-e END] [-u] entity_resolved rovat_8 deaths order unique_id is_sorted fp out_path
+
+Optional arguments:
+
+- -h: Shows a help message and exits.
+
+- -s START: Comma separated field preference list for start dates. e.g. hattol,valtk,bkelt. DEFAULT: hattol,valtk,bkelt,jogvk
+
+- -e END: Comma separated field preference list for end dates. e.g. hatig,valtv,tkelt. DEFAULT: hatig,valtv,tkelt,jogvv
+
+- -u: Unique flag. Should be used if only a single entry is valid at any given time.
+
+Positional arguments:
+
+- entity_resolved: The path to the entity resolved input csv file.
+
+- rovat_8: The path to the rovat 8 csv file.
+
+- deaths: The path to the frame.
+
+- order: A column of the entity resolved csv file describing the order of records within a firm. It is usually the alrovat_id.
+
+- unique_id: A column of the entity resolved csv file which contains unique entity IDs. E.g.: person ID
+
+- fp: A comma separated list of column labels in the entity resolved csv file describing the path to a single firm. It is usually ceg_id.
+
+- out_path: Path where the output should be written.
+
+## An example how to run time machine tool on the srv
+
+```
+$ python3 timemachine_mp.py -u temp/rovat_902_fortm_fotev.csv input/frame-20190508/frame_with_dates.csv alrovat_id teaor ceg_id temp/rovat_902_tm.csv 25
+
+```
+{: .bash}
+
+In this example we would like to clean the raw NACE input dates by ceg_id. 
+You can see the `-u` uniqe option means that we have one NACE main activity at the same time. 
+The unique column is the `teaor` and the code is using the `frame_with_dates.csv` which identify one frame_id-tax_id pair for one moment. 
+The `25` means that we would like to run the multiprocessing on 25 cores. 
+
+
