@@ -4,13 +4,13 @@ teaching: 0
 exercises: 0
 questions:
 - "What is a tool and why we use them?"
-- "How to read and understand a tool help and output?
+- "How to read a tool help and understands the outputs?
 objectives:
 - "Join a unique ID to a raw .csv with different input types."
 - "Choose the right cut offs and good matches"
 - "Get to know how to run a tool on the server"
 keypoints:
-- ""
+- 
 ---
 
 {% include links.md %}
