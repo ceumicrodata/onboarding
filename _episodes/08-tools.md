@@ -3,24 +3,30 @@ title: "Tools in MicroData"
 teaching: 0
 exercises: 0
 questions:
-- "What is a tool and why we use them?"
-- "How to read a tool help and understands the outputs?"
+- "What is a programing tool and why we use them?"
+- "How to read a tool manual and understand the outputs?"
 objectives:
-- "Join a unique ID to a raw .csv with different input types."
-- "Choose the right cut offs and good matches"
-- "Get to know how to run a tool on the server"
+- "Join a unique ID to a raw .csv with different input types"
+- "Choose the right cut offs and specify the good matches"
+- "Get to know how to run a tool on the server with good options"
 keypoints:
+- "Tools are helping you to automate tasks like joining unique ID-s for an input variable."
+- "Firm name tool good for firm matching and PIR tool is good for state organizations matching"
 ---
 
 {% include links.md %}
 
 # The problem
 
-There are lots of occasions when we don’t have a unique ID for a raw input data. 
+There are lots of occasions when we would like to automate some tasks by the help of programming tools. 
+
+<https://en.wikipedia.org/wiki/Programming_tool>
+
+One task is when we want to add a unique ID to a raw input variable. 
 An input data could be firm name, person name, governmental institution, foundation, association .etc. 
 Firm and person names also could be foreign ones. 
 
-We are continuously developing tools to identify these inputs and join a unique ID to them.  
+We are continuously developing tools to identify these inputs and give a unique ID to them.  
 
 # Firm name search tool
 
@@ -29,9 +35,9 @@ You can find, among others, the building and installing methods on github:
 
 <https://github.com/ceumicrodata/firm_name_search>
 
-## Use of the tool
+## Using the tool
 
-Requirements:
+### Requirements:
 - Python2 and the tool must be available on the PATH
 - a proprietary database index file (available only to members of CEU MicroData)
 
@@ -59,16 +65,19 @@ $ python name-to-taxids-20161004 name temp/distinct_firms.csv temp/distinct_firm
 ```
 {: .bash}
 
-You can see that you must add the whitelist path manually. 
+The tool searches for tax numbers for items in the `name` field. 
+You must have to add the whitelist path manually: `'input/firm-name-index/complex_firms.sqlite'`
 
 ## The meaning of the outcome and how to choose the proper cut off scores
 
-The tool outcomes and scoring system are based on Hungarian legal forms. If an input data has valid legal form then more likely a Hungarian company that not.
+The tool outcomes and scoring system are based on Hungarian legal forms. 
+If an input data has a valid legal form then more likely a Hungarian company that not.
 
 <https://www.ksh.hu/gfo_eng_menu>
 
-A good match is very much dependent on how good the input data is. 
-If we pre-filter the data and for example drop person names before we run the tool we can get good matches on lower text_scores.
+A good match is dependend on how well prepared the input data is.  
+If the data pre-filtering is good, before we run the tool, a text_score with lower value could become a good hit. 
+Good cleaning opportunity to drop person names and foreign firm names from the input data.
 
 ```
         Score meaning	 
@@ -86,19 +95,21 @@ If we pre-filter the data and for example drop person names before we run the to
 ```
 
 Can be said generally that most of the possible matches will be in `org_score==2 and text_score 0 <= x < 1` category. 
-If a data is not very dirty usually matches bigger than `0.8` org_score could be possible good ones. 
-You must have to adjust the good match cut offs in every category, every time when you run the tool on a new input. 
+If a data is well prepared `0.8` org_score could be a suggested cut-off score. Results above this are expected to be good.
+You must have to adjust the good match cut offs in every time in every category when you run the tool on a new input. 
 
 # PIR name search tool
 
 Pir name search tool is developed for identify Hungarian state organizations by name. 
 Pir number is the registration number of budgetary institutions in the Financial Information System at Hungarian State Treasury.
 
-There is an online platform to find the PIR numbers one by one. 
+## TIP:
+There is an online platform to find PIR numbers one by one. 
 
 <http://www.allamkincstar.gov.hu/hu/ext/torzskonyv>
 
 The PIR search command line tool requires Python 3.6+.
+
 Input: utf-8 encoded CSV file
 Output: utf-8 encoded CSV file, same fields as in input with additional fields for "official data"
 
@@ -132,25 +143,26 @@ python3 pir_search-0.8.0 input/pir-index/index.json name temp/distinct_firms.csv
 ```
 {: .bash}
 
-Pir_score==1 and pir_err==0 is a perfect match. 
 The pir_score output could be between 0 <= x < 1.
+Pir_score==1 AND pir_err==0 is the perfect match.
 
-The bigger the pir_err the match is more likely wrong. 
+The bigger the pir_err score the match is more likely wrong.
+
 `Pir score bigger than 0.8 and pir_err<0.8 are potentially good matches`. 
 
 You must have to adjust the good match cut offs in every category, every time when you run the tool on a new input. 
 
 # Complexweb
 
-The Complexweb is and internal searchable version of the raw Complex Registry Court database.
-A code is required to log in. 
+Complexweb is and internal searchable version of the raw Complex Registry Court database.
+VPN and password is required to log in. 
 
 ## TIP:
 You can find downloadable official balance and income statements from e-beszámolo.hu:
 
 <https://e-beszamolo.im.gov.hu/oldal/kezdolap>
 
-You can easily find the firm you search fot if you change the tax_id or the ceg_id in the html column.
+You can easily find the firm you are searching for if you change the tax_id or the ceg_id in the html:
 
 ```
 Example pages with fictive tax_id
@@ -165,7 +177,7 @@ http://complexweb.microdata.servers.ceu.hu/ceg/0101234568
 ```
 {: .bash}
 
-You can write Postgre SQL queries to join tables and search in Complexweb.
+You can write Postgre SQL queries to request more complex searches: 
 
 <https://www.postgresql.org/docs/13/index.html>
 
@@ -276,7 +288,9 @@ Usage: timemachine.py [-h] [-s START] [-e END] [-u] entity_resolved rovat_8 deat
 
 - out_path: Path where the output should be written.
 
-## An example how to run time machine tool on the srv
+## An example how to run time machine tool on the server
+
+In this example we would like to clean the raw NACE input dates by ceg_id:
 
 ```
 $ python3 timemachine_mp.py -u temp/rovat_902_fortm_fotev.csv input/frame-20190508/frame_with_dates.csv alrovat_id teaor ceg_id temp/rovat_902_tm.csv 25
@@ -284,9 +298,8 @@ $ python3 timemachine_mp.py -u temp/rovat_902_fortm_fotev.csv input/frame-201905
 ```
 {: .bash}
 
-In this example we would like to clean the raw NACE input dates by ceg_id. 
-You can see the `-u` uniqe option means that we have one NACE main activity at the same time. 
-The unique column is the `teaor` and the code is using the `frame_with_dates.csv` which identify one frame_id-tax_id pair for one moment. 
-The `25` means that we would like to run the multiprocessing on 25 cores. 
+You can see the `-u` unique option means that we have one NACE main activity code at the same time. 
+The unique column is the `teaor` and the code is using the `frame_with_dates.csv` which identify one frame_id-tax_id pair for each firm.
+The `25` means that we choose multiprocessing with maximum 25 cores. 
 
 
