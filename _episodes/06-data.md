@@ -312,7 +312,7 @@ Two firms (identified by frame id) are connected if they share an address (hq, s
 
 ## The bead chain
 
-![](https://github.com/ceumicrodata/onboarding/blob/gh-pages/fig/kozbeszerzes_LTS_2019_flowchart.png)
+![Flowchart](https://github.com/ceumicrodata/onboarding/blob/gh-pages/fig/kozbeszerzes_LTS_2019_flowchart.png)
 
 The input data is from the Procurement Authority website <http://www.kozbeszerzes.hu>. The final bead is the `kozbeszerzes-LTS-2019`.
 The bead chain is made up of these elements:
