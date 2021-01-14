@@ -5,9 +5,13 @@ exercises: 0
 questions:
 - What are the basic terms used by version control systems?
 - Which files are contained within the .git directory?
+- How to install git?
+- How does the basic collaborative workflow look like?
 - What are some of the most important git commands? 
 objectives:
 - Understand the basic terminology of Git and Github
+- Install and setup git
+- Understand the collaborative workflow and commit message etiquette
 - List some of the most useful commands that can be easily accessed in your everyday work
 ---
 
@@ -78,6 +82,25 @@ The .git directory contains:
 *   info directory - contains the global excludes file
 *   objects directory - stores all the commits
 *   refs directory - holds pointers to commits (e.g "branch" and "tag") 
+
+### Install, setup git
+
+*   Supported browsers: current versions of Chrome, Firefox, Safari, Microsoft Edge    
+*   Create a GitHub account: https://github.com/             
+*   Install git: https://git-scm.com/downloads   
+    * Indented itemIf you are on a Mac, git should already be installed.        
+    * Indented itemIf you are using a Windows machine, this will also install a program called *Git Bash*, which provides a text-based interface for executing commands on your computer.
+*   Configure installation    
+    * `git config --global user.name "your-full-name"`    
+    * `git config --global user.email "your-email-address"`     
+*   SSH key: for faster usage (no password needed afterwards)    
+    * Check if you already have: Is it anything in .ssh? ls .ssh    
+        * if no, create a new one and add to ssh agent:             https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent                             
+        * if yes, go to next step        
+    * Add new SSH key to your github account:         https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account     
+*   Download Sublime Merge (recommended git client): https://www.sublimemerge.com/download 
+
+### Git workflow - collaborate with others
 
 ### Useful commands
 
