@@ -58,7 +58,7 @@ In an XQuartz terminal you can connect to the graphical server by issuing the fo
 ### Windows
 
 PuTTy provides a CLI for the server. 
-On Windows you can download a simple REAL VNC viewer from: (https://cp.webgalaxy.hu/haflinger/vncviewer.exe)
+On Windows you can download a simple REAL VNC viewer from: [vncviewer](https://cp.webgalaxy.hu/haflinger/vncviewer.exe)
 After installation you have to use the following server address along with your server password: 
 `haflinger.ceu.hu:VNCPORT`
 
