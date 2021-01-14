@@ -88,13 +88,13 @@ The .git directory contains:
 *   Supported browsers: current versions of Chrome, Firefox, Safari, Microsoft Edge    
 *   Create a [GitHub](https://github.com/) account              
 *   Install [git](https://git-scm.com/downloads)   
-    * Indented itemIf you are on a Mac, git should already be installed.        
-    * Indented itemIf you are using a Windows machine, this will also install a program called *Git Bash*, which provides a text-based interface for executing commands on your computer.
+    * If you are on a Mac, git should already be installed.        
+    * If you are using a Windows machine, this will also install a program called *Git Bash*, which provides a text-based interface for executing commands on your computer.
 *   Configure installation    
     * `git config --global user.name "your-full-name"`    
     * `git config --global user.email "your-email-address"`     
 *   SSH key: for faster usage (no password needed afterwards)    
-    * Check if you already have: Is it anything in .ssh? ls .ssh    
+    * Check if you already have: Is it anything in .ssh? `ls .ssh`    
         * if no, create a new one and [add to ssh agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)                             
         * if yes, go to next step        
     * [Add new SSH key](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) to your github account:           
