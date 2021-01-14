@@ -86,8 +86,8 @@ The .git directory contains:
 ### Install, setup git
 
 *   Supported browsers: current versions of Chrome, Firefox, Safari, Microsoft Edge    
-*   Create a GitHub account: https://github.com/             
-*   Install git: https://git-scm.com/downloads   
+*   Create a [GitHub](https://github.com/) account              
+*   Install [git](https://git-scm.com/downloads)   
     * Indented itemIf you are on a Mac, git should already be installed.        
     * Indented itemIf you are using a Windows machine, this will also install a program called *Git Bash*, which provides a text-based interface for executing commands on your computer.
 *   Configure installation    
@@ -95,10 +95,10 @@ The .git directory contains:
     * `git config --global user.email "your-email-address"`     
 *   SSH key: for faster usage (no password needed afterwards)    
     * Check if you already have: Is it anything in .ssh? ls .ssh    
-        * if no, create a new one and add to ssh agent:             https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent                             
+        * if no, create a new one and [add to ssh agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)                             
         * if yes, go to next step        
-    * Add new SSH key to your github account:         https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account     
-*   Download Sublime Merge (recommended git client): https://www.sublimemerge.com/download 
+    * [Add new SSH key](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) to your github account:           
+*   Download [Sublime Merge](https://www.sublimemerge.com/download) (recommended git client) 
 
 ### Git workflow - collaborate with others
 
