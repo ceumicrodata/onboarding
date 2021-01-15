@@ -110,6 +110,8 @@ The .git directory contains:
     * commit message could also refer to Issues (eg. “close #3”) (issues are like to-do-s)
 *   `git log`: view the history of commits you’ve made
 
+![Git_changes]({{ page.root }}/fig/git_changes.png)
+
 #### Collaborate with others
 
 In practice, it is good to be sure that you have an updated version of the repository you are collaborating on, so **you should git pull before making your changes**. The basic collaborative workflow would be:
@@ -121,6 +123,8 @@ In practice, it is good to be sure that you have an updated version of the repos
 It is better to **make many commits with smaller changes** rather than of one commit with massive changes: small commits are easier to read and review.
 *   fork: copy to origin / clone: copy remote repo to create local repo / pull: copies changes from a remote repository to a local repository.  
 *   .gitignore (eg. large files OR on Mac hidden .DS_Store files OR data in ss-descriptives)
+
+![Git_collaborate]({{ page.root }}/fig/git_collaborate.png)
 
 #### Branching, conflicts
 
@@ -138,6 +142,7 @@ Merging
 *   **Push**: You will not be able to push to GitHub if merging your commits into GitHub’s repo would cause a merge conflict. Git will instead report an error, telling you that you need to pull changes first and make sure that your version is “up to date”. Up to date in this case means that you have downloaded and merged all the commits on your local machine, so there is no chance of divergent changes causing a merge conflict when you merge by pushing.
 *   **Pull**: Whenever you pull changes from GitHub, there may be a merge conflict! These are resolved in the exact same way as when merging local branches: that is, you need to edit the files to resolve the conflict, then add and commit the updated versions.
 
+![Git_conflict]({{ page.root }}/fig/git_conflict.png)
 
 ### Useful commands
 
