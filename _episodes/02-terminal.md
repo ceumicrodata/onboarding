@@ -30,7 +30,7 @@ However, as mentioned before, the command line interpreter is just a software. S
 
 ## The Terminal
 The CLI that we are going to use is called the Terminal (on Unix-like systems) or Git-bash (on Windows). From here on, they both will be referenced as the Terminal. If you open a Terminal window, you are supposed to see an almost-blank window with something like this written on it:
-> `johndoe@percheron2:~$`
+> `johndoe@haflinger:~$`
 
 It should be followed by a blinking cursor. This is called the command prompt. It tells you some important information about where you are currently working. It is structured the following way:
 > `username@machine:current_directory$`
@@ -67,10 +67,10 @@ You can find the most commonly used commands with a short description below by c
 - `cd` changes the working directory. It has a positional argument, which is the target directory. The target directory can be either given as an absolute path or a relative path. 
   ~~~
   #absolute path
-  $ cd /srv/dropbox_encrypted/   
+  $ cd /srv/sandbox/   
 
   #relative path
-  $ cd ../../srv/dropbox_encrypted/ 
+  $ cd ../../srv/sandbox/ 
   ~~~
   {: .language-bash}
 
