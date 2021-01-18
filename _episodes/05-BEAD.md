@@ -45,7 +45,7 @@ New computations get a new, universally unique `kind` (technically an uuid).
 
 Data packages can be in one of two states. Under active development in a [workspace](#workspace), or packaged and stored as a [bead](#bead). Beads are stored in a [box](#box), which is just a collection of completed beads.
 
-![Workflows](https://github.com/ceumicrodata/bead/blob/master/doc/workflows.png)
+![](https://github.com/ceumicrodata/bead/blob/master/doc/workflows.png)
 
 To see how workspaces are created from beads and vice versa, also see [usecases](./usecases.md)
 
