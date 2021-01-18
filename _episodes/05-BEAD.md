@@ -90,10 +90,9 @@ A *box* is where beads are saved to and loaded from. It also gives names to bead
 
 
 # Installing `bead`
-1. install python if not already installed
-Latest release depends on python 2.7 (also works with python 3.x, if it is started by `python`).
-Next version will require Python 3.6+
-2. download latest version from https://github.com/ceumicrodata/bead/releases
+1. install python if not already installed.
+Latest release depends on Python 3.8.5. 
+2. download latest version from https://github.com/e3krisztian/bead/releases/tag/v0.8.1
 you will need only the platform specific binary:
 - `bead` for linux & mac
 - `bead.cmd` for windows
@@ -107,14 +106,14 @@ for windows the python/scripts directory is a good candidate.
 
 For user install, the directories do not exist by default and they are only added to the `PATH` if exist.
 
-E.g. the following commands would install version v0.0.2 (latest release at the time of writing) on linux:
+E.g. the following commands would install version v0.8.1 (latest release at the time of writing) on linux:
 
 ```
 # ensure user bin directory existst (for user specific scripts)
 mkdir -p ~/.local/bin
 # download bead
 cd ~/.local/bin
-wget https://github.com/ceumicrodata/bead/releases/download/v0.0.2/bead
+wget https://github.com/e3krisztian/bead/releases/download/v0.8.1/bead
 # make executable
 chmod +x bead
 # go back to work directory
@@ -135,20 +134,25 @@ The bead help guide you through the usage of the bead.
 $ bead -h
 
 ```
+usage: bead [-h] {new,develop,save,status,nuke,web,zap,xmeta,version,input,box} 
+
 positional arguments:
-  {new,develop,save,status,nuke,version,input,box}
-    new                 Create and initialize new workspace directory with a
-                        new bead.
+  {new,develop,save,status,nuke,web,zap,xmeta,version,input,box}
+    new                 Create and initialize new workspace directory with a new bead.
     develop             Create workspace from specified bead.
     save                Save workspace in a box.
     status              Show workspace information.
-    nuke                Delete workspace.
+    nuke                No operation, you probably want zap, to delete the workspace.
+    web                 Manage/visualize the big picture - connections between beads.
+    zap                 Delete workspace.
+    xmeta               eXport eXtended meta attributes to a file next to zip archive.
     version             Show program version.
     input               Manage data loaded from other beads...
     box                 Manage bead boxes...
 
 optional arguments:
   -h, --help            show this help message and exit
+
 ```
 
 All the positional arguments have own subcommands with complete help. 
@@ -172,8 +176,8 @@ optional arguments:
 Initial setup:
 ```
 $ mkdir /somepath/BeadBox
-$ bead box add main /somepath/BeadBox
-Will remember box main
+$ bead box add latest /somepath/BeadBox
+Will remember box latest
 ```
 {: .bash}
 
@@ -194,13 +198,13 @@ Add some data to the output of this new bead which we can use later. This bead h
 {: .bash}
     
 ```
-/somepath/name$ bead save main
+/somepath/name$ bead save latest
 Successfully stored bead.
 ```
 {: .bash}
     
 ```
-/somepath/name$ bead nuke name
+/somepath/name$ bead zap name
 Deleted workspace /somepath/name
 ```
 {: .bash}
@@ -256,7 +260,7 @@ Hello World!
 Save our new bead:
 
 ```
-/somepath/hello$ bead save main
+/somepath/hello$ bead save latest
 Successfully stored bead.
 ```
 {: .bash}
