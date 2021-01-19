@@ -19,7 +19,7 @@ keypoints:
 These guidelines help us share data among themselves. Always make the extra effort to make your work understandable to others: you are in the best position to explain what you did. If you follow these guidelines, you only have to do this once for every data product you create.
 
 # Naming files and folders
-1. `/data/source-of-data/name-of-dataset/stage`. For example, `/data/apeh/balance-sheet/raw`
+1. `/data/source-of-data/name-of-dataset/stage`. For example, `/data/mak/pir_entities/raw`
 2. Use long, expressive filenames, e.g. `balance-sheet-with-frame.dta` rather than `bs-merge.dta`
 2. Use-dash-for-word-separation, not CamelCase, space or underscore.
 3. Do not indicate version in filename. File versions should be managed by version control tool.
