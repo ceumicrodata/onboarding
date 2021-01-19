@@ -82,7 +82,7 @@ variable name   					type    format      variable label
 
 frame_id        					str15   %15s        Frame_id identify one firm. Only_originalid if not valid
 originalid      					long    %10.0g      Given year Taxid. Minus if taxid not valid
-year            					int     %9.0g       Year 1992-2018
+year            					int     %9.0g       Year 1980-2018
 sales           					double  %12.0g      Sales 1000HUF
 sales18         					double  %12.0f      Sales in 2018 price 1000HUF
 emp             					double  %9.0f       Employment clean v2
@@ -100,11 +100,7 @@ so3             					byte    %9.0g       State government owned dummy with ultim
 fo3             					byte    %8.0g       Foreign owned dummy with ultimate owners from Complex
 do3             					byte    %9.0g       Domestic owned dummy which is not so3 or fo3
 mo3             					byte    %9.0g       Local government owned dummy which is not so3
-
-Contains data from  balance_sheet_92_18.dta
-obs:     8,657,462                          
-vars:          64                          5 Jun 2020 17:25
-width:        373                          
+                      
 ```
 
 ## Cegjegyzek-LTS-2019
