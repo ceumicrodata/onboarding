@@ -261,13 +261,16 @@ bead web color auto-rewire heads / source-bead target-bead / png filename.png
 {: .bash}
 
 Auto-rewire is required for the new bead. 
+
 Color is optional.
+
 Heads are optional: if loaded they will only plot the latest version of each bead plus what is referenced by another bead.
+
 If you change the source bead to `..` it plots the entire bead structure leading to the target bead. 
 If you change the target bead to `..` it plots the entire structure starting from the source bead. 
-Instead of png it can be `svg filename.svg` if you prefer that format. 
+It is very important that before and after `/` you need a space character. 
 
-It is very important that after and before `/` you need a space character.   
+Instead of png it can be `svg filename.svg` if you prefer that format. 
 
 ## Package the data and send it to an outside collaborator
 
