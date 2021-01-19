@@ -256,7 +256,7 @@ Hello World!
 Bead web is a new feature of version 0.8.1. You can check the details with `bead web -h`
 
 ```
-bead web color auto-rewire heads / source-bead target-bead / png filename.png
+$ bead web color auto-rewire heads / source-bead target-bead / png filename.png
 ```
 {: .bash}
 
