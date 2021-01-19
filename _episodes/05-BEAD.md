@@ -39,13 +39,9 @@ The `kind` and timestamp properties enable a meaningful `update` operation on in
 
 New computations get a new, universally unique `kind` (technically an uuid).
 
-![](https://github.com/ceumicrodata/bead/blob/master/doc/internals.png)
-
 ## Bead concepts
 
 Data packages can be in one of two states. Under active development in a [workspace](#workspace), or packaged and stored as a [bead](#bead). Beads are stored in a [box](#box), which is just a collection of completed beads.
-
-![](https://github.com/ceumicrodata/bead/blob/master/doc/workflows.png)
 
 To see how workspaces are created from beads and vice versa, also see [usecases](./usecases.md)
 
@@ -254,6 +250,24 @@ This script has create a text file in `output/greeting`. Let us verify its conte
 Hello World!
 ```
 {: .bash}
+
+## Visually display the bead chain
+
+Bead web is a new feature of version 0.8.1. You can check the details with `bead web -h`
+
+```
+bead web color auto-rewire heads / source-bead target-bead / png filename.png
+```
+{: .bash}
+
+Auto-rewire is required for the new bead. 
+Color is optional.
+Heads are optional: if loaded they will only plot the latest version of each bead plus what is referenced by another bead.
+If you change the source bead to `..` it plots the entire bead structure leading to the target bead. 
+If you change the target bead to `..` it plots the entire structure starting from the source bead. 
+Instead of png it can be `svg filename.svg` if you prefer that format. 
+
+It is very important that after and before `/` you need a space character.   
 
 ## Package the data and send it to an outside collaborator
 
