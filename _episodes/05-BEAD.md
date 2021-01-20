@@ -3,12 +3,12 @@ title: "bead: Chaining your data and code together"
 teaching: 0
 exercises: 0
 questions:
-- "How do you ensure that your data products are reprodicuble?"
+- "How do you ensure that your data products are reproducible?"
 objectives:
 - "Use `bead`, a command-line tool to create, update and share data products."
 keypoints:
 - "Keep and share data together with the code that produced it."
-- "When sharing data with someone else, always do it in a bead."
+- "When sharing your data, always do it in a bead."
 - "Never refer to external data from a bead, use bead inputs."
 ---
 
@@ -26,18 +26,10 @@ a BEAD captures all three named parts:
 
 - `output` - *data files* (results of the computation)
 - `function` - *source code files*, that when run hopefully compute `output` from `inputs`
-- `inputs` - are other BEADs' `output` and thus stored as *references to* those *BEADs*
+- `inputs` - are other bead' `output` and thus stored as *references to* those *beads*
 
 As a special case pure data can be thought of as *constant computation*
 having only output but neither inputs nor source code.
-
-A BEAD has some other metadata - notably it has a `kind` property which is shared by
-different versions of the conceptually same computation (input or function may be updated/improved)
-and a timestamp when the computation was frozen.
-
-The `kind` and timestamp properties enable a meaningful `update` operation on inputs.
-
-New computations get a new, universally unique `kind` (technically an uuid).
 
 ## Bead concepts
 
@@ -79,6 +71,10 @@ Main properties of a bead:
 - freeze time (for ordering versions, this is fragile in theory as depends on correctly set clocks, but in practice it is expected to cause few problems)
 - freeze name
 - references to its inputs (`kind`, `content_id`)
+
+The main changes from v. 0.0.2. to 0.8.1 that beads are referenced by names from here on. 
+
+It is important to mention that we should not create a new bead with a name already in use. 
 
 ## Box
 
@@ -169,10 +165,11 @@ optional arguments:
 
 ## Create a new bead
 
-Initial setup:
+Initial setup. 
+The `latest` bead-box already made on the haflinger. 
 ```
-$ mkdir /somepath/BeadBox
-$ bead box add latest /somepath/BeadBox
+$ mkdir /somepath/bead-box/latest
+$ bead box add latest /somepath/bead-box/latest
 Will remember box latest
 ```
 {: .bash}
@@ -189,7 +186,7 @@ Add some data to the output of this new bead which we can use later. This bead h
 
 ```
 /somepath$ cd name/
-/somepath/name$ echo World > output/name
+/somepath/name$ echo World > output/who-do-i-greet
 ```
 {: .bash}
     
@@ -200,7 +197,8 @@ Successfully stored bead.
 {: .bash}
     
 ```
-/somepath/name$ bead zap name
+cd ..
+/somepath/$ bead zap name
 Deleted workspace /somepath/name
 ```
 {: .bash}
@@ -223,15 +221,15 @@ Created hello
 Add data from an existing bead at `input/<input-name>/`:
 
 ```
-/somepath/hello$ bead input add name who-do-i-greet
-name loaded on who-do-i-greet.
+/somepath/hello$ bead input add name
+Loading new data to name ... Done
 ```
 {: .bash}
 
-Create a program `greet` that produces a greeting, using `input/who-do-i-greet` as an input:
+Create a program `greet` that produces a greeting, using `input/name` as an input:
 
 ```
-read name < input/who-do-i-greet/name
+read name < input/name/who-do-i-greet
 echo "Hello $name!" > output/greeting
 ```
 {: .bash}
